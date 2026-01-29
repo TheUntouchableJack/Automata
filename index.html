@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automata — AI-Powered Customer Automations</title>
+    <meta name="description" content="Give one person the power to maintain meaningful relationships with millions of customers. AI-powered automations that scale your business.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="i18n/i18n.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">A</span>
+                <span class="logo-text">Automata</span>
+            </a>
+            <div class="nav-links">
+                <a href="/automations/" data-i18n="nav.automations">Automations</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="/blog/" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-cta">
+                <a href="/app/login.html" class="btn btn-secondary" data-i18n="nav.login">Log In</a>
+                <a href="#cta" class="btn btn-primary" data-i18n="nav.joinWaitlist">Join Waitlist</a>
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-selector-btn" type="button" aria-label="Change language">
+                        <span class="lang-selector-current">EN</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="en">EN</a>
+                        <a href="#" class="lang-option" data-lang="es">ES</a>
+                        <a href="#" class="lang-option" data-lang="fr">FR</a>
+                        <a href="#" class="lang-option" data-lang="de">DE</a>
+                        <a href="#" class="lang-option" data-lang="it">IT</a>
+                        <a href="#" class="lang-option" data-lang="pt">PT</a>
+                        <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                        <a href="#" class="lang-option" data-lang="ar">AR</a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span data-i18n="hero.badge">Now in Beta — Join the waitlist</span>
+                </div>
+                <h1 class="hero-title">
+                    <span data-i18n="hero.titleLine1">One person.</span> <br>
+                    <span class="gradient-text" data-i18n="hero.titleLine2">Millions of relationships.</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    Upload your customer data. Let AI propose personalized automations.
+                    Build meaningful connections at scale — without losing the human touch.
+                </p>
+                <div class="hero-cta">
+                    <a href="#cta" class="btn btn-primary btn-large">
+                        <span data-i18n="hero.joinWaitlist">Join the Waitlist</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-ghost btn-large" data-i18n="hero.seeHowItWorks">
+                        See How It Works
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10x</span>
+                        <span class="stat-label" data-i18n="hero.stats.fasterSetup">Faster Setup</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label" data-i18n="hero.stats.timeSaved">Time Saved</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">3x</span>
+                        <span class="stat-label" data-i18n="hero.stats.moreEngagement">More Engagement</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="preview-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="preview-title" data-i18n="preview.title">Automata Dashboard</span>
+                    </div>
+                    <div class="preview-content">
+                        <div class="automation-card">
+                            <div class="automation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="automation-info">
+                                <span class="automation-title" data-i18n="preview.birthdayRewards">Birthday Rewards</span>
+                                <span class="automation-desc" data-i18n="preview.birthdayDesc">Send personalized offers on customer birthdays</span>
+                            </div>
+                            <div class="automation-status active" data-i18n="preview.active">Active</div>
+                        </div>
+                        <div class="automation-card">
+                            <div class="automation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="automation-info">
+                                <span class="automation-title" data-i18n="preview.loyaltyPoints">Loyalty Points</span>
+                                <span class="automation-desc" data-i18n="preview.loyaltyDesc">Reward repeat customers automatically</span>
+                            </div>
+                            <div class="automation-status active" data-i18n="preview.active">Active</div>
+                        </div>
+                        <div class="automation-card suggested">
+                            <div class="automation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 11.5C21 16.75 12 22 12 22C12 22 3 16.75 3 11.5C3 6.25 7.03 2 12 2C16.97 2 21 6.25 21 11.5Z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="automation-info">
+                                <span class="automation-title suggested-label" data-i18n="preview.aiSuggested">AI Suggested</span>
+                                <span class="automation-desc" data-i18n="preview.happyHourDesc">Happy hour alerts for nearby customers</span>
+                            </div>
+                            <button class="btn btn-small" data-i18n="preview.review">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="comparison.title">The old way is broken</h2>
+                <p data-i18n="comparison.subtitle">Traditional apps put the cart before the horse. You build features hoping customers will come. Automata flips the script.</p>
+            </div>
+            <div class="comparison">
+                <div class="comparison-card old-way">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <h3 data-i18n="comparison.oldWay.title">The Old Way</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li data-i18n="comparison.oldWay.item1">Build expensive app first</li>
+                        <li data-i18n="comparison.oldWay.item2">Hope customers show up</li>
+                        <li data-i18n="comparison.oldWay.item3">Manually manage relationships</li>
+                        <li data-i18n="comparison.oldWay.item4">Automations as afterthought</li>
+                        <li data-i18n="comparison.oldWay.item5">Generic, one-size-fits-all</li>
+                    </ul>
+                </div>
+                <div class="comparison-card new-way">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <h3 data-i18n="comparison.newWay.title">The Automata Way</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li data-i18n="comparison.newWay.item1">Start with your customers</li>
+                        <li data-i18n="comparison.newWay.item2">AI proposes automations</li>
+                        <li data-i18n="comparison.newWay.item3">Relationships scale automatically</li>
+                        <li data-i18n="comparison.newWay.item4">Apps emerge from success</li>
+                        <li data-i18n="comparison.newWay.item5">Personalized to each customer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="features.tag">Features</span>
+                <h2 data-i18n="features.title">Everything you need to automate customer relationships</h2>
+                <p data-i18n="features.subtitle">Powerful tools that work together seamlessly</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4V28M4 16H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.dataImport.title">Easy Data Import</h3>
+                    <p data-i18n="features.dataImport.desc">Upload your customer list via CSV or enter manually. Add custom fields that matter to your business.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M16 10V16L20 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.scheduling.title">Smart Scheduling</h3>
+                    <p data-i18n="features.scheduling.desc">Weekly, monthly, or event-based triggers. AI optimizes send times for maximum engagement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4L20 12L28 13L22 19L24 28L16 24L8 28L10 19L4 13L12 12L16 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.aiProposals.title">AI-Powered Proposals</h3>
+                    <p data-i18n="features.aiProposals.desc">Our AI analyzes your business and customers, then suggests automations tailored to your goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M4 12L16 18L28 12" stroke="currentColor" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.multiChannel.title">Multi-Channel Delivery</h3>
+                    <p data-i18n="features.multiChannel.desc">Reach customers via email or SMS. Each message personalized with their unique details.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="12" r="4" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M8 26C8 22 11.5 18 16 18C20.5 18 24 22 24 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.humanLoop.title">Human in the Loop</h3>
+                    <p data-i18n="features.humanLoop.desc">AI proposes, you approve. Full control over every automation before it goes live.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M4 24L12 16L18 22L28 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="features.analytics.title">Real-Time Analytics</h3>
+                    <p data-i18n="features.analytics.desc">Track engagement, measure growth, and see which automations drive the most value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="howItWorks.tag">How It Works</span>
+                <h2 data-i18n="howItWorks.title">From data to relationships in 4 steps</h2>
+                <p data-i18n="howItWorks.subtitle">Get started in minutes, not months</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-i18n="howItWorks.step1.title">Upload Your Customers</h3>
+                        <p data-i18n="howItWorks.step1.desc">Import your existing customer list via CSV or add them manually. Include whatever data matters — birthdays, locations, preferences.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-i18n="howItWorks.step2.title">Tell Us About Your Business</h3>
+                        <p data-i18n="howItWorks.step2.desc">Share your business type, goals, and what success looks like. This context helps our AI make smarter suggestions.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-i18n="howItWorks.step3.title">Review AI Suggestions</h3>
+                        <p data-i18n="howItWorks.step3.desc">Our AI analyzes your data and proposes 5-10 tailored automations. Review each one, edit if needed, and approve with one click.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 data-i18n="howItWorks.step4.title">Watch Relationships Grow</h3>
+                        <p data-i18n="howItWorks.step4.desc">Automations run on your schedule. Customers receive personalized messages. You focus on what matters — your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automations Preview Section -->
+    <section id="automations" class="automations-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="templates.tag">Templates</span>
+                <h2 data-i18n="templates.title">Ready-to-use automations</h2>
+                <p data-i18n="templates.subtitle">Browse our library of proven templates. Customize and launch in minutes.</p>
+            </div>
+            <div class="templates-grid-preview">
+                <!-- Birthday Rewards -->
+                <div class="template-card-preview" data-template="birthday-rewards">
+                    <button class="btn-automate" onclick="startAutomation('birthday-rewards')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="template-card-badge popular" data-i18n="templates.badges.popular">Popular</span>
+                    <h3 class="template-card-name" data-i18n="templates.birthday.title">Birthday Rewards</h3>
+                    <p class="template-card-desc" data-i18n="templates.birthday.desc">Automatically send personalized birthday offers to customers. Boost loyalty and drive repeat visits.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.all">All Industries</span>
+                        <span class="template-card-uses">2.4k uses</span>
+                    </div>
+                </div>
+
+                <!-- Loyalty Program -->
+                <div class="template-card-preview" data-template="loyalty-program">
+                    <button class="btn-automate" onclick="startAutomation('loyalty-program')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-card-badge featured" data-i18n="templates.badges.featured">Featured</span>
+                    <h3 class="template-card-name" data-i18n="templates.loyalty.title">Loyalty Points Program</h3>
+                    <p class="template-card-desc" data-i18n="templates.loyalty.desc">Reward repeat customers automatically. Track points and send redemption reminders.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.retail">Retail</span>
+                        <span class="template-card-uses">1.8k uses</span>
+                    </div>
+                </div>
+
+                <!-- Happy Hour Alerts -->
+                <div class="template-card-preview" data-template="happy-hour">
+                    <button class="btn-automate" onclick="startAutomation('happy-hour')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 11.5C21 16.75 12 22 12 22C12 22 3 16.75 3 11.5C3 6.25 7.03 2 12 2C16.97 2 21 6.25 21 11.5Z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="template-card-badge new" data-i18n="templates.badges.new">New</span>
+                    <h3 class="template-card-name" data-i18n="templates.happyHour.title">Happy Hour Alerts</h3>
+                    <p class="template-card-desc" data-i18n="templates.happyHour.desc">Notify nearby customers about happy hour specials. Drive foot traffic during slow hours.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.food">Food</span>
+                        <span class="template-card-uses">956 uses</span>
+                    </div>
+                </div>
+
+                <!-- Appointment Reminders -->
+                <div class="template-card-preview" data-template="appointment-reminders">
+                    <button class="btn-automate" onclick="startAutomation('appointment-reminders')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 10H21M8 2V6M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-card-name" data-i18n="templates.appointment.title">Appointment Reminders</h3>
+                    <p class="template-card-desc" data-i18n="templates.appointment.desc">Reduce no-shows with automated reminders. Send via SMS or email 24 hours before.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.health">Health</span>
+                        <span class="template-card-uses">3.1k uses</span>
+                    </div>
+                </div>
+
+                <!-- Post-Visit Follow-up -->
+                <div class="template-card-preview" data-template="post-visit">
+                    <button class="btn-automate" onclick="startAutomation('post-visit')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-card-name" data-i18n="templates.postVisit.title">Post-Visit Follow-up</h3>
+                    <p class="template-card-desc" data-i18n="templates.postVisit.desc">Thank customers after their visit and ask for feedback. Build relationships that last.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.services">Services</span>
+                        <span class="template-card-uses">1.2k uses</span>
+                    </div>
+                </div>
+
+                <!-- Win-Back Campaign -->
+                <div class="template-card-preview" data-template="win-back">
+                    <button class="btn-automate" onclick="startAutomation('win-back')" data-i18n="templates.automate">Automate</button>
+                    <div class="template-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 8L21 3M21 3V8M21 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-card-badge popular" data-i18n="templates.badges.popular">Popular</span>
+                    <h3 class="template-card-name" data-i18n="templates.winBack.title">Win-Back Campaign</h3>
+                    <p class="template-card-desc" data-i18n="templates.winBack.desc">Re-engage customers who haven't visited in 30+ days with personalized offers.</p>
+                    <div class="template-card-meta">
+                        <span class="template-card-industry" data-i18n="templates.industries.all">All Industries</span>
+                        <span class="template-card-uses">2.1k uses</span>
+                    </div>
+                </div>
+            </div>
+            <div class="templates-cta">
+                <a href="/automations/" class="btn btn-secondary btn-large">
+                    <span data-i18n="templates.browseAll">Browse All Templates</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="testimonials.tag">Testimonials</span>
+                <h2 data-i18n="testimonials.title">Loved by businesses everywhere</h2>
+                <p data-i18n="testimonials.subtitle">See what our customers have to say</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M14 24C14 19 18 16 22 16V20C20 20 18 21 18 24V28H22V36H14V24ZM30 24C30 19 34 16 38 16V20C36 20 34 21 34 24V28H38V36H30V24Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <blockquote data-i18n="testimonials.quote1.text">
+                    "We went from manually texting 50 customers to automatically engaging 5,000 — without hiring anyone. Our repeat visits are up 40%."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <span class="author-name" data-i18n="testimonials.quote1.author">Maria Rodriguez</span>
+                        <span class="author-title" data-i18n="testimonials.quote1.title">Owner, Casa del Sol Restaurant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="pricing.tag">Pricing</span>
+                <h2 data-i18n="pricing.title">Simple, transparent pricing</h2>
+                <p data-i18n="pricing.subtitle">Pay for what you use. No hidden fees.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.free.name">Free Trial</h3>
+                        <p data-i18n="pricing.free.desc">Get started and see the power of automation</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">$0</span>
+                        <span class="period" data-i18n="pricing.free.period">for 14 days</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.free.feature1">Up to 100 customers</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.free.feature2">2 active automations</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.free.feature3">100 messages included</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.free.feature4">Email support</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary btn-block" data-i18n="pricing.free.cta">Join Waitlist</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge" data-i18n="pricing.growth.badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.growth.name">Growth</h3>
+                        <p data-i18n="pricing.growth.desc">For businesses ready to scale relationships</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">$75</span>
+                        <span class="period" data-i18n="pricing.growth.period">per automation</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.growth.feature1">Unlimited customers</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.growth.feature2">Unlimited automations</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.growth.feature3">Email + SMS channels</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.growth.feature4">AI-powered suggestions</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.growth.feature5">Priority support</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary btn-block" data-i18n="pricing.growth.cta">Get Started</a>
+                    <p class="pricing-note" data-i18n="pricing.growth.note">+ $29/mo hosting · Usage-based messaging</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.enterprise.name">Enterprise</h3>
+                        <p data-i18n="pricing.enterprise.desc">For large teams with custom needs</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price" data-i18n="pricing.enterprise.price">Custom</span>
+                        <span class="period" data-i18n="pricing.enterprise.period">tailored to you</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.enterprise.feature1">Everything in Growth</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.enterprise.feature2">Custom integrations</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.enterprise.feature3">Dedicated support</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span data-i18n="pricing.enterprise.feature4">SLA guarantee</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary btn-block" data-i18n="pricing.enterprise.cta">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="cta.title">Be the first to automate your customer relationships</h2>
+                <p data-i18n="cta.subtitle">Join the waitlist and get early access to AI-powered automations.</p>
+                <form class="cta-form" id="signup-form">
+                    <div class="form-group">
+                        <input type="email" data-i18n-placeholder="cta.emailPlaceholder" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">
+                            <span data-i18n="cta.joinWaitlist">Join Waitlist</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="form-note" data-i18n="cta.note">We'll notify you when we launch.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">A</span>
+                        <span class="logo-text">Automata</span>
+                    </a>
+                    <p data-i18n="footer.tagline">Automations that amplify human connection.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.product">Product</h4>
+                        <a href="/automations/" data-i18n="nav.automations">Automations</a>
+                        <a href="#features" data-i18n="nav.features">Features</a>
+                        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.company">Company</h4>
+                        <a href="#" data-i18n="footer.about">About</a>
+                        <a href="/blog/" data-i18n="nav.blog">Blog</a>
+                        <a href="#" data-i18n="footer.careers">Careers</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal">Legal</h4>
+                        <a href="#" data-i18n="footer.privacy">Privacy</a>
+                        <a href="#" data-i18n="footer.terms">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2026 Automata. All rights reserved.</p>
+                <!-- Footer Language Selector -->
+                <div class="lang-selector compact">
+                    <button class="lang-selector-btn" type="button" aria-label="Change language">
+                        <span class="lang-selector-current">EN</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="en">EN</a>
+                        <a href="#" class="lang-option" data-lang="es">ES</a>
+                        <a href="#" class="lang-option" data-lang="fr">FR</a>
+                        <a href="#" class="lang-option" data-lang="de">DE</a>
+                        <a href="#" class="lang-option" data-lang="it">IT</a>
+                        <a href="#" class="lang-option" data-lang="pt">PT</a>
+                        <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                        <a href="#" class="lang-option" data-lang="ar">AR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal">
+            <div class="modal-icon">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="30" stroke="#10b981" stroke-width="4"/>
+                    <path d="M20 32L28 40L44 24" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>You're on the waitlist!</h3>
+            <p>We'll notify you as soon as Automata is ready for you.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Got it</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="i18n/i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

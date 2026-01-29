@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading... - Automata Blog</title>
+    <meta name="description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+</head>
+<body>
+    <div class="blog-layout">
+        <!-- Header -->
+        <header class="blog-header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <nav class="blog-nav">
+                    <a href="/">Home</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/app/login.html">Log In</a>
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <main>
+            <!-- Loading -->
+            <div class="blog-loading" id="loading">
+                <div class="loading-spinner"></div>
+            </div>
+
+            <!-- Post -->
+            <article class="post-page" id="post-content" style="display: none;">
+                <header class="post-header">
+                    <div class="post-meta">
+                        <span class="post-industry" id="post-industry"></span>
+                        <span class="post-date" id="post-date"></span>
+                    </div>
+                    <h1 class="post-title" id="post-title"></h1>
+                </header>
+
+                <div class="post-content" id="post-body"></div>
+
+                <!-- Keywords -->
+                <div class="post-card-keywords" id="post-keywords" style="margin-top: 40px;"></div>
+
+                <!-- Related Posts -->
+                <section class="related-posts" id="related-posts" style="display: none;">
+                    <h2>Related Articles</h2>
+                    <div class="related-posts-grid" id="related-posts-grid"></div>
+                </section>
+            </article>
+
+            <!-- Not Found -->
+            <div class="blog-empty" id="not-found" style="display: none;">
+                <div class="blog-empty-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/>
+                        <path d="M14 14L26 26M26 14L14 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h2>Post not found</h2>
+                <p>The article you're looking for doesn't exist or has been removed.</p>
+                <a href="/blog/" class="btn btn-primary" style="margin-top: 24px;">Back to Blog</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="blog-footer">
+            <div class="container">
+                <p>Powered by <a href="/">Automata</a> - Automations that amplify human connection</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+{
+    "nav": {
+        "automations": "Automatizaciones",
+        "features": "Características",
+        "howItWorks": "Cómo Funciona",
+        "pricing": "Precios",
+        "blog": "Blog",
+        "login": "Iniciar Sesión",
+        "joinWaitlist": "Únete a la Lista",
+        "projects": "Proyectos",
+        "customers": "Clientes",
+        "dashboard": "Panel",
+        "signOut": "Cerrar Sesión"
+    },
+    "hero": {
+        "badge": "En Beta — Únete a la lista de espera",
+        "titleLine1": "Una persona.",
+        "titleLine2": "Millones de relaciones.",
+        "subtitle": "Sube los datos de tus clientes. Deja que la IA proponga automatizaciones personalizadas. Construye conexiones significativas a escala — sin perder el toque humano.",
+        "joinWaitlist": "Únete a la Lista",
+        "seeHowItWorks": "Ver Cómo Funciona",
+        "stats": {
+            "fasterSetup": "Configuración Rápida",
+            "timeSaved": "Tiempo Ahorrado",
+            "moreEngagement": "Más Interacción"
+        }
+    },
+    "preview": {
+        "title": "Panel de Automata",
+        "birthdayRewards": "Recompensas de Cumpleaños",
+        "birthdayDesc": "Envía ofertas personalizadas en cumpleaños",
+        "loyaltyPoints": "Puntos de Lealtad",
+        "loyaltyDesc": "Recompensa clientes frecuentes automáticamente",
+        "aiSuggested": "Sugerido por IA",
+        "happyHourDesc": "Alertas de happy hour para clientes cercanos",
+        "active": "Activo",
+        "review": "Revisar"
+    },
+    "comparison": {
+        "title": "La Forma Antigua Está Rota",
+        "subtitle": "Las apps tradicionales ponen el carro delante del caballo. Construyes funciones esperando que lleguen clientes. Automata invierte el guión.",
+        "oldWay": {
+            "title": "La Forma Antigua",
+            "item1": "Construir app costosa primero",
+            "item2": "Esperar que lleguen clientes",
+            "item3": "Gestionar relaciones manualmente",
+            "item4": "Automatizaciones como idea tardía",
+            "item5": "Genérico, talla única"
+        },
+        "newWay": {
+            "title": "La Forma Automata",
+            "item1": "Empezar con tus clientes",
+            "item2": "La IA propone automatizaciones",
+            "item3": "Las relaciones escalan automáticamente",
+            "item4": "Las apps emergen del éxito",
+            "item5": "Personalizado para cada cliente"
+        }
+    },
+    "features": {
+        "tag": "Características",
+        "title": "Todo lo Que Necesitas Para Automatizar Relaciones con Clientes",
+        "subtitle": "Herramientas poderosas que funcionan juntas perfectamente",
+        "dataImport": {
+            "title": "Importación de Datos Fácil",
+            "desc": "Sube tu lista de clientes via CSV o ingresa manualmente. Agrega campos personalizados importantes para tu negocio."
+        },
+        "scheduling": {
+            "title": "Programación Inteligente",
+            "desc": "Disparadores semanales, mensuales o basados en eventos. La IA optimiza tiempos de envío para máximo engagement."
+        },
+        "aiProposals": {
+            "title": "Propuestas Impulsadas por IA",
+            "desc": "Nuestra IA analiza tu negocio y clientes, luego sugiere automatizaciones adaptadas a tus objetivos."
+        },
+        "multiChannel": {
+            "title": "Entrega Multi-Canal",
+            "desc": "Alcanza clientes via email o SMS. Cada mensaje personalizado con sus detalles únicos."
+        },
+        "humanLoop": {
+            "title": "Humano en el Ciclo",
+            "desc": "La IA propone, tú apruebas. Control total sobre cada automatización antes de que se active."
+        },
+        "analytics": {
+            "title": "Analíticas en Tiempo Real",
+            "desc": "Rastrea engagement, mide crecimiento y ve qué automatizaciones generan más valor."
+        }
+    },
+    "howItWorks": {
+        "tag": "Cómo Funciona",
+        "title": "De Datos a Relaciones en 4 Pasos",
+        "subtitle": "Comienza en minutos, no en meses",
+        "step1": {
+            "title": "Sube Tus Clientes",
+            "desc": "Importa tu lista de clientes existente via CSV o agrégalos manualmente. Incluye los datos que importan — cumpleaños, ubicaciones, preferencias."
+        },
+        "step2": {
+            "title": "Cuéntanos de Tu Negocio",
+            "desc": "Comparte tu tipo de negocio, objetivos y cómo es el éxito para ti. Este contexto ayuda a nuestra IA a hacer sugerencias más inteligentes."
+        },
+        "step3": {
+            "title": "Revisa Sugerencias de IA",
+            "desc": "Nuestra IA analiza tus datos y propone 5-10 automatizaciones personalizadas. Revisa cada una, edita si es necesario y aprueba con un clic."
+        },
+        "step4": {
+            "title": "Mira Crecer las Relaciones",
+            "desc": "Las automatizaciones corren según tu horario. Los clientes reciben mensajes personalizados. Tú te enfocas en lo que importa — tu negocio."
+        }
+    },
+    "templates": {
+        "tag": "Plantillas",
+        "title": "Automatizaciones Listas Para Usar",
+        "subtitle": "Explora nuestra biblioteca de plantillas probadas. Personaliza y lanza en minutos.",
+        "automate": "Automatizar",
+        "browseAll": "Ver Todas las Plantillas",
+        "badges": {
+            "popular": "Popular",
+            "featured": "Destacado",
+            "new": "Nuevo"
+        },
+        "industries": {
+            "all": "Todas las Industrias",
+            "retail": "Retail",
+            "food": "Comida",
+            "health": "Salud",
+            "services": "Servicios"
+        },
+        "birthday": {
+            "title": "Recompensas de Cumpleaños",
+            "desc": "Envía automáticamente ofertas de cumpleaños personalizadas a clientes. Aumenta la lealtad y las visitas repetidas."
+        },
+        "loyalty": {
+            "title": "Programa de Puntos de Lealtad",
+            "desc": "Recompensa clientes frecuentes automáticamente. Rastrea puntos y envía recordatorios de canje."
+        },
+        "happyHour": {
+            "title": "Alertas de Happy Hour",
+            "desc": "Notifica a clientes cercanos sobre ofertas de happy hour. Aumenta el tráfico en horas lentas."
+        },
+        "appointment": {
+            "title": "Recordatorios de Citas",
+            "desc": "Reduce ausencias con recordatorios automáticos. Envía via SMS o email 24 horas antes."
+        },
+        "postVisit": {
+            "title": "Seguimiento Post-Visita",
+            "desc": "Agradece a clientes después de su visita y pide feedback. Construye relaciones duraderas."
+        },
+        "winBack": {
+            "title": "Campaña de Recuperación",
+            "desc": "Re-engancha clientes que no han visitado en 30+ días con ofertas personalizadas."
+        }
+    },
+    "testimonials": {
+        "tag": "Testimonios",
+        "title": "Amado Por Negocios en Todas Partes",
+        "subtitle": "Mira lo que dicen nuestros clientes",
+        "quote1": {
+            "text": "Pasamos de enviar mensajes manualmente a 50 clientes a interactuar automáticamente con 5,000 — sin contratar a nadie. Nuestras visitas repetidas aumentaron un 40%.",
+            "author": "María Rodríguez",
+            "title": "Propietaria, Restaurante Casa del Sol"
+        }
+    },
+    "pricing": {
+        "tag": "Precios",
+        "title": "Precios Simples y Transparentes",
+        "subtitle": "Paga por lo que usas. Sin costos ocultos.",
+        "free": {
+            "name": "Prueba Gratis",
+            "desc": "Comienza y descubre el poder de la automatización",
+            "period": "por 14 días",
+            "feature1": "Hasta 100 clientes",
+            "feature2": "2 automatizaciones activas",
+            "feature3": "100 mensajes incluidos",
+            "feature4": "Soporte por email",
+            "cta": "Unirse a la Lista"
+        },
+        "growth": {
+            "badge": "Más Popular",
+            "name": "Crecimiento",
+            "desc": "Para negocios listos para escalar relaciones",
+            "period": "por automatización",
+            "feature1": "Clientes ilimitados",
+            "feature2": "Automatizaciones ilimitadas",
+            "feature3": "Canales Email + SMS",
+            "feature4": "Sugerencias con IA",
+            "feature5": "Soporte prioritario",
+            "cta": "Comenzar",
+            "note": "+ $29/mes hosting · Mensajes por uso"
+        },
+        "enterprise": {
+            "name": "Empresa",
+            "desc": "Para equipos grandes con necesidades personalizadas",
+            "price": "Personalizado",
+            "period": "adaptado a ti",
+            "feature1": "Todo en Crecimiento",
+            "feature2": "Integraciones personalizadas",
+            "feature3": "Soporte dedicado",
+            "feature4": "Garantía SLA",
+            "cta": "Contactar Ventas"
+        }
+    },
+    "cta": {
+        "title": "Sé el Primero en Automatizar Tus Relaciones con Clientes",
+        "subtitle": "Únete a la lista de espera y obtén acceso anticipado a automatizaciones impulsadas por IA.",
+        "emailPlaceholder": "Ingresa tu correo",
+        "joinWaitlist": "Únete a la Lista",
+        "note": "Te notificaremos cuando lancemos."
+    },
+    "footer": {
+        "tagline": "Automatizaciones que amplifican la conexión humana.",
+        "product": "Producto",
+        "company": "Empresa",
+        "legal": "Legal",
+        "about": "Nosotros",
+        "careers": "Carreras",
+        "privacy": "Privacidad",
+        "terms": "Términos",
+        "copyright": "© 2026 Automata. Todos los derechos reservados."
+    },
+    "dashboard": {
+        "title": "Tus Proyectos",
+        "subtitle": "Gestiona tus proyectos de automatización",
+        "newProject": "Nuevo Proyecto",
+        "noProjects": "Aún no hay proyectos",
+        "noProjectsDesc": "Crea tu primer proyecto para comenzar a automatizar",
+        "createFirst": "Crea Tu Primer Proyecto"
+    },
+    "project": {
+        "overview": "Resumen",
+        "automations": "Automatizaciones",
+        "customers": "Clientes",
+        "settings": "Configuración",
+        "newAutomation": "Nueva Automatización",
+        "noAutomations": "Aún no hay automatizaciones",
+        "createAutomation": "Crea tu primera automatización para comenzar",
+        "details": "Detalles del Proyecto",
+        "businessContext": "Contexto del Negocio",
+        "edit": "Editar",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar Proyecto",
+        "dangerZone": "Zona de Peligro",
+        "dangerDesc": "Una vez que elimines un proyecto, no hay vuelta atrás.",
+        "goals": "Objetivos",
+        "painPoints": "Puntos de Dolor",
+        "competitors": "Competidores",
+        "competitiveAdvantage": "Ventaja Competitiva",
+        "targetMarket": "Mercado Objetivo",
+        "location": "Ubicación",
+        "industry": "Industria",
+        "description": "Descripción",
+        "name": "Nombre del Proyecto"
+    },
+    "automationsPage": {
+        "title": "Automatizaciones",
+        "subtitle": "Gestiona todas tus automatizaciones en todos los proyectos",
+        "all": "Todas",
+        "active": "Activas",
+        "inactive": "Inactivas",
+        "archived": "Archivadas",
+        "search": "Buscar automatizaciones...",
+        "noAutomations": "Aún no hay automatizaciones",
+        "noAutomationsDesc": "Crea tu primera automatización desde un proyecto.",
+        "open": "Abrir",
+        "archive": "Archivar",
+        "restore": "Restaurar",
+        "delete": "Eliminar"
+    },
+    "customers": {
+        "title": "Clientes",
+        "subtitle": "Gestiona tu base de datos de clientes",
+        "total": "Total de Clientes",
+        "newThisMonth": "Nuevos Este Mes",
+        "withEmail": "Con Correo",
+        "addCustomer": "Agregar Cliente",
+        "importCsv": "Importar CSV",
+        "search": "Buscar clientes...",
+        "allTags": "Todas las Etiquetas",
+        "allSources": "Todas las Fuentes",
+        "noCustomers": "Aún no hay clientes",
+        "noCustomersDesc": "Agrega tu primer cliente o importa desde CSV",
+        "name": "Nombre",
+        "email": "Correo",
+        "company": "Empresa",
+        "tags": "Etiquetas",
+        "source": "Fuente",
+        "added": "Agregado",
+        "actions": "Acciones"
+    },
+    "opportunities": {
+        "title": "Oportunidades IA",
+        "analyze": "Generar Oportunidades IA",
+        "analyzing": "Analizando tu negocio...",
+        "ready": "Listo para generar oportunidades IA",
+        "incomplete": "Agrega {fields} de tu proyecto para habilitar el análisis IA",
+        "showMore": "Mostrar Más Oportunidades",
+        "startAutomation": "Iniciar Automatización",
+        "dismiss": "Descartar",
+        "whyThis": "¿Por qué esto?"
+    },
+    "modal": {
+        "createProject": "Crear Nuevo Proyecto",
+        "editProject": "Editar Proyecto",
+        "createAutomation": "Crear Automatización",
+        "addCustomer": "Agregar Cliente",
+        "editCustomer": "Editar Cliente",
+        "importCsv": "Importar CSV",
+        "close": "Cerrar",
+        "cancel": "Cancelar",
+        "create": "Crear",
+        "save": "Guardar Cambios"
+    },
+    "form": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "company": "Empresa",
+        "required": "Requerido",
+        "optional": "Opcional"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito",
+        "confirm": "Confirmar",
+        "yes": "Sí",
+        "no": "No",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "page": "Página",
+        "of": "de"
+    }
+}

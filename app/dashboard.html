@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Automata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+    <link rel="stylesheet" href="danger-modal.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="container">
+                <a href="/app/dashboard.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <nav class="main-nav">
+                    <a href="/app/dashboard.html" class="nav-link active" data-i18n="nav.projects">Projects</a>
+                    <a href="/app/automations.html" class="nav-link" data-i18n="nav.automations">Automations</a>
+                    <a href="/app/customers.html" class="nav-link" data-i18n="nav.customers">Customers</a>
+                </nav>
+
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" id="user-menu-btn">
+                            <span class="user-avatar" id="user-avatar">?</span>
+                            <span class="user-name" id="user-name">Loading...</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="/app/dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+                            <a href="/app/automations.html" data-i18n="nav.automations">Automations</a>
+                            <a href="/app/customers.html" data-i18n="nav.customers">Customers</a>
+                            <div class="divider"></div>
+                            <button class="logout-btn" id="logout-btn" data-i18n="nav.signOut">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div class="container">
+                    <div>
+                        <h1 class="page-title" data-i18n="dashboard.title">Your Projects</h1>
+                        <p class="page-subtitle" data-i18n="dashboard.subtitle">Manage your automation projects</p>
+                    </div>
+                    <button class="btn btn-primary" id="new-project-btn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span data-i18n="dashboard.newProject">New Project</span>
+                    </button>
+                </div>
+            </div>
+
+            <section class="projects-section">
+                <div class="container">
+                    <!-- Loading State -->
+                    <div class="loading-container" id="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+
+                    <!-- Projects Grid -->
+                    <div class="projects-grid" id="projects-grid" style="display: none;">
+                        <!-- Projects will be inserted here -->
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <div class="empty-state-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="6" width="24" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14 14H26M14 20H26M14 26H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="dashboard.noProjects">No projects yet</h3>
+                        <p data-i18n="dashboard.noProjectsDesc">Create your first project to start automating</p>
+                        <button class="btn btn-primary" id="empty-new-project-btn" data-i18n="dashboard.createFirst">
+                            Create Your First Project
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Create Project Modal -->
+    <div class="modal-overlay" id="create-project-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 data-i18n="modal.createProject">Create New Project</h2>
+                <button class="modal-close" id="modal-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="create-project-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="project-name">Project Name</label>
+                        <input type="text" id="project-name" name="name" placeholder="My Awesome Project" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-description">Description</label>
+                        <textarea id="project-description" name="description" placeholder="What is this project about?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-industry">Industry</label>
+                        <select id="project-industry" name="industry">
+                            <option value="">Select an industry</option>
+                            <option value="agnostic">Agnostic / All Industries</option>
+                            <option value="food">Food & Restaurant</option>
+                            <option value="health">Health & Wellness</option>
+                            <option value="service">Professional Services</option>
+                            <option value="politics">Politics & Advocacy</option>
+                            <option value="technology">Technology</option>
+                            <option value="retail">Retail & E-commerce</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-helper">This helps the AI generate relevant content</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="create-btn">Create Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="auth.js?v=2"></script>
+    <script src="celebrate.js?v=2"></script>
+    <script src="danger-modal.js?v=1"></script>
+    <script src="dashboard.js?v=4"></script>
+</body>
+</html>

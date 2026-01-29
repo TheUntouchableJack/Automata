@@ -1,0 +1,334 @@
+{
+    "nav": {
+        "automations": "自动化",
+        "features": "功能",
+        "howItWorks": "工作原理",
+        "pricing": "定价",
+        "blog": "博客",
+        "login": "登录",
+        "joinWaitlist": "加入等候名单",
+        "projects": "项目",
+        "customers": "客户",
+        "dashboard": "仪表板",
+        "signOut": "退出"
+    },
+    "hero": {
+        "badge": "测试版 — 加入等候名单",
+        "titleLine1": "一个人。",
+        "titleLine2": "数百万个关系。",
+        "subtitle": "上传您的客户数据。让AI提出个性化自动化建议。大规模建立有意义的联系——同时保持人性化。",
+        "joinWaitlist": "加入等候名单",
+        "seeHowItWorks": "了解工作原理",
+        "stats": {
+            "fasterSetup": "更快设置",
+            "timeSaved": "节省时间",
+            "moreEngagement": "更多互动"
+        }
+    },
+    "preview": {
+        "title": "Automata 仪表板",
+        "birthdayRewards": "生日奖励",
+        "birthdayDesc": "在客户生日时发送个性化优惠",
+        "loyaltyPoints": "忠诚度积分",
+        "loyaltyDesc": "自动奖励回头客",
+        "aiSuggested": "AI推荐",
+        "happyHourDesc": "向附近客户发送欢乐时光提醒",
+        "active": "活跃",
+        "review": "审核"
+    },
+    "comparison": {
+        "title": "旧方式已经过时",
+        "subtitle": "传统应用本末倒置。你先开发功能，希望客户会来。Automata颠覆了这一切。",
+        "oldWay": {
+            "title": "旧方式",
+            "item1": "先开发昂贵的应用",
+            "item2": "希望客户出现",
+            "item3": "手动管理关系",
+            "item4": "自动化是事后考虑",
+            "item5": "通用，一刀切"
+        },
+        "newWay": {
+            "title": "Automata方式",
+            "item1": "从您的客户开始",
+            "item2": "AI提出自动化建议",
+            "item3": "关系自动扩展",
+            "item4": "应用从成功中诞生",
+            "item5": "为每个客户个性化"
+        }
+    },
+    "features": {
+        "tag": "功能",
+        "title": "自动化客户关系所需的一切",
+        "subtitle": "强大的工具无缝协作",
+        "dataImport": {
+            "title": "轻松导入数据",
+            "desc": "通过CSV上传客户列表或手动输入。添加对您业务重要的自定义字段。"
+        },
+        "scheduling": {
+            "title": "智能调度",
+            "desc": "每周、每月或基于事件的触发器。AI优化发送时间以获得最大参与度。"
+        },
+        "aiProposals": {
+            "title": "AI驱动的建议",
+            "desc": "我们的AI分析您的业务和客户，然后建议针对您目标量身定制的自动化。"
+        },
+        "multiChannel": {
+            "title": "多渠道交付",
+            "desc": "通过电子邮件或短信联系客户。每条消息都使用他们的独特详细信息进行个性化。"
+        },
+        "humanLoop": {
+            "title": "人工参与",
+            "desc": "AI提议，您批准。在上线前完全控制每个自动化。"
+        },
+        "analytics": {
+            "title": "实时分析",
+            "desc": "跟踪参与度，衡量增长，查看哪些自动化带来最大价值。"
+        }
+    },
+    "howItWorks": {
+        "tag": "工作原理",
+        "title": "4步从数据到关系",
+        "subtitle": "几分钟内开始，而不是几个月",
+        "step1": {
+            "title": "上传您的客户",
+            "desc": "通过CSV导入现有客户列表或手动添加。包含任何重要数据——生日、位置、偏好。"
+        },
+        "step2": {
+            "title": "告诉我们您的业务",
+            "desc": "分享您的业务类型、目标以及成功对您意味着什么。这些背景帮助我们的AI做出更智能的建议。"
+        },
+        "step3": {
+            "title": "审核AI建议",
+            "desc": "我们的AI分析您的数据并提出5-10个定制自动化。审核每个，如需要可编辑，一键批准。"
+        },
+        "step4": {
+            "title": "观察关系增长",
+            "desc": "自动化按您的时间表运行。客户收到个性化消息。您专注于重要的事——您的业务。"
+        }
+    },
+    "templates": {
+        "tag": "模板",
+        "title": "即用型自动化",
+        "subtitle": "浏览我们经过验证的模板库。几分钟内自定义并启动。",
+        "automate": "自动化",
+        "browseAll": "浏览所有模板",
+        "badges": {
+            "popular": "热门",
+            "featured": "精选",
+            "new": "新"
+        },
+        "industries": {
+            "all": "所有行业",
+            "retail": "零售",
+            "food": "餐饮",
+            "health": "健康",
+            "services": "服务"
+        },
+        "birthday": {
+            "title": "生日奖励",
+            "desc": "自动向客户发送个性化生日优惠。提高忠诚度和回访率。"
+        },
+        "loyalty": {
+            "title": "忠诚度积分计划",
+            "desc": "自动奖励回头客。跟踪积分并发送兑换提醒。"
+        },
+        "happyHour": {
+            "title": "欢乐时光提醒",
+            "desc": "通知附近客户欢乐时光优惠。在淡季增加客流量。"
+        },
+        "appointment": {
+            "title": "预约提醒",
+            "desc": "通过自动提醒减少爽约。提前24小时通过短信或电子邮件发送。"
+        },
+        "postVisit": {
+            "title": "访后跟进",
+            "desc": "在客户访问后感谢他们并请求反馈。建立持久的关系。"
+        },
+        "winBack": {
+            "title": "客户召回活动",
+            "desc": "用个性化优惠重新吸引30天以上未访问的客户。"
+        }
+    },
+    "testimonials": {
+        "tag": "客户评价",
+        "title": "深受各地企业喜爱",
+        "subtitle": "看看我们的客户怎么说",
+        "quote1": {
+            "text": "我们从手动给50个客户发短信，变成自动与5,000个客户互动——没有雇用任何人。我们的回访率提高了40%。",
+            "author": "Maria Rodriguez",
+            "title": "Casa del Sol餐厅老板"
+        }
+    },
+    "pricing": {
+        "tag": "定价",
+        "title": "简单透明的定价",
+        "subtitle": "按使用付费。没有隐藏费用。",
+        "free": {
+            "name": "免费试用",
+            "desc": "开始体验自动化的力量",
+            "period": "14天",
+            "feature1": "最多100个客户",
+            "feature2": "2个活跃自动化",
+            "feature3": "包含100条消息",
+            "feature4": "邮件支持",
+            "cta": "加入等候名单"
+        },
+        "growth": {
+            "badge": "最受欢迎",
+            "name": "成长版",
+            "desc": "适合准备扩展关系的企业",
+            "period": "每个自动化",
+            "feature1": "无限客户",
+            "feature2": "无限自动化",
+            "feature3": "邮件 + 短信渠道",
+            "feature4": "AI驱动建议",
+            "feature5": "优先支持",
+            "cta": "开始使用",
+            "note": "+ ¥199/月托管 · 按量计费消息"
+        },
+        "enterprise": {
+            "name": "企业版",
+            "desc": "适合有定制需求的大型团队",
+            "price": "定制",
+            "period": "为您量身定制",
+            "feature1": "成长版全部功能",
+            "feature2": "定制集成",
+            "feature3": "专属支持",
+            "feature4": "SLA保障",
+            "cta": "联系销售"
+        }
+    },
+    "cta": {
+        "title": "成为第一个自动化客户关系的人",
+        "subtitle": "加入等候名单，抢先体验AI驱动的自动化。",
+        "emailPlaceholder": "输入您的电子邮件",
+        "joinWaitlist": "加入等候名单",
+        "note": "我们会在上线时通知您。"
+    },
+    "footer": {
+        "tagline": "增强人际联系的自动化。",
+        "product": "产品",
+        "company": "公司",
+        "legal": "法律",
+        "about": "关于我们",
+        "careers": "招聘",
+        "privacy": "隐私",
+        "terms": "条款",
+        "copyright": "© 2026 Automata。保留所有权利。"
+    },
+    "dashboard": {
+        "title": "您的项目",
+        "subtitle": "管理您的自动化项目",
+        "newProject": "新项目",
+        "noProjects": "暂无项目",
+        "noProjectsDesc": "创建您的第一个项目以开始自动化",
+        "createFirst": "创建您的第一个项目"
+    },
+    "project": {
+        "overview": "概览",
+        "automations": "自动化",
+        "customers": "客户",
+        "settings": "设置",
+        "newAutomation": "新自动化",
+        "noAutomations": "暂无自动化",
+        "createAutomation": "创建您的第一个自动化以开始",
+        "details": "项目详情",
+        "businessContext": "业务背景",
+        "edit": "编辑",
+        "save": "保存",
+        "cancel": "取消",
+        "delete": "删除项目",
+        "dangerZone": "危险区域",
+        "dangerDesc": "一旦删除项目，将无法恢复。",
+        "goals": "目标",
+        "painPoints": "痛点",
+        "competitors": "竞争对手",
+        "competitiveAdvantage": "竞争优势",
+        "targetMarket": "目标市场",
+        "location": "位置",
+        "industry": "行业",
+        "description": "描述",
+        "name": "项目名称"
+    },
+    "automationsPage": {
+        "title": "自动化",
+        "subtitle": "管理所有项目的自动化",
+        "all": "全部",
+        "active": "活跃",
+        "inactive": "非活跃",
+        "archived": "已归档",
+        "search": "搜索自动化...",
+        "noAutomations": "暂无自动化",
+        "noAutomationsDesc": "从项目中创建您的第一个自动化。",
+        "open": "打开",
+        "archive": "归档",
+        "restore": "恢复",
+        "delete": "删除"
+    },
+    "customers": {
+        "title": "客户",
+        "subtitle": "管理您的客户数据库",
+        "total": "客户总数",
+        "newThisMonth": "本月新增",
+        "withEmail": "有电子邮件",
+        "addCustomer": "添加客户",
+        "importCsv": "导入CSV",
+        "search": "搜索客户...",
+        "allTags": "所有标签",
+        "allSources": "所有来源",
+        "noCustomers": "暂无客户",
+        "noCustomersDesc": "添加您的第一个客户或从CSV导入",
+        "name": "姓名",
+        "email": "电子邮件",
+        "company": "公司",
+        "tags": "标签",
+        "source": "来源",
+        "added": "添加时间",
+        "actions": "操作"
+    },
+    "opportunities": {
+        "title": "AI机会",
+        "analyze": "生成AI机会",
+        "analyzing": "正在分析您的业务...",
+        "ready": "准备生成AI机会",
+        "incomplete": "添加项目的{fields}以启用AI分析",
+        "showMore": "显示更多机会",
+        "startAutomation": "开始自动化",
+        "dismiss": "忽略",
+        "whyThis": "为什么是这个？"
+    },
+    "modal": {
+        "createProject": "创建新项目",
+        "editProject": "编辑项目",
+        "createAutomation": "创建自动化",
+        "addCustomer": "添加客户",
+        "editCustomer": "编辑客户",
+        "importCsv": "导入CSV",
+        "close": "关闭",
+        "cancel": "取消",
+        "create": "创建",
+        "save": "保存更改"
+    },
+    "form": {
+        "firstName": "名",
+        "lastName": "姓",
+        "email": "电子邮件",
+        "phone": "电话",
+        "company": "公司",
+        "required": "必填",
+        "optional": "可选"
+    },
+    "common": {
+        "loading": "加载中...",
+        "error": "错误",
+        "success": "成功",
+        "confirm": "确认",
+        "yes": "是",
+        "no": "否",
+        "back": "返回",
+        "next": "下一步",
+        "previous": "上一步",
+        "page": "页",
+        "of": "/"
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Automata</title>
+    <meta name="description" content="Explore automation ideas and strategies for various industries. AI-powered insights for food, health, technology, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+</head>
+<body>
+    <div class="blog-layout">
+        <!-- Header -->
+        <header class="blog-header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <nav class="blog-nav">
+                    <a href="/">Home</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/app/login.html">Log In</a>
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Automation Insights</h1>
+                <p>Explore ideas and strategies for automating customer relationships across industries</p>
+            </div>
+        </section>
+
+        <!-- Filter -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-tabs" id="filter-tabs">
+                    <button class="filter-tab active" data-industry="all">All</button>
+                    <button class="filter-tab" data-industry="food">Food</button>
+                    <button class="filter-tab" data-industry="health">Health</button>
+                    <button class="filter-tab" data-industry="service">Services</button>
+                    <button class="filter-tab" data-industry="politics">Politics</button>
+                    <button class="filter-tab" data-industry="technology">Technology</button>
+                    <button class="filter-tab" data-industry="retail">Retail</button>
+                    <button class="filter-tab" data-industry="education">Education</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posts -->
+        <section class="blog-posts-section">
+            <div class="container">
+                <!-- Loading -->
+                <div class="blog-loading" id="loading">
+                    <div class="loading-spinner"></div>
+                </div>
+
+                <!-- Posts Grid -->
+                <div class="posts-grid" id="posts-grid" style="display: none;"></div>
+
+                <!-- Empty State -->
+                <div class="blog-empty" id="empty-state" style="display: none;">
+                    <div class="blog-empty-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="6" width="24" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 14H26M14 20H26M14 26H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2>No posts yet</h2>
+                    <p>Check back soon for automation insights and industry strategies</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="blog-footer">
+            <div class="container">
+                <p>Powered by <a href="/">Automata</a> - Automations that amplify human connection</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+{
+    "nav": {
+        "automations": "Automatisierungen",
+        "features": "Funktionen",
+        "howItWorks": "So funktioniert's",
+        "pricing": "Preise",
+        "blog": "Blog",
+        "login": "Anmelden",
+        "joinWaitlist": "Warteliste beitreten",
+        "projects": "Projekte",
+        "customers": "Kunden",
+        "dashboard": "Dashboard",
+        "signOut": "Abmelden"
+    },
+    "hero": {
+        "badge": "In Beta — Warteliste beitreten",
+        "titleLine1": "Eine Person.",
+        "titleLine2": "Millionen von Beziehungen.",
+        "subtitle": "Laden Sie Ihre Kundendaten hoch. Lassen Sie KI personalisierte Automatisierungen vorschlagen. Bauen Sie bedeutungsvolle Verbindungen im großen Maßstab auf — ohne den menschlichen Touch zu verlieren.",
+        "joinWaitlist": "Warteliste beitreten",
+        "seeHowItWorks": "So funktioniert's",
+        "stats": {
+            "fasterSetup": "Schnellere Einrichtung",
+            "timeSaved": "Zeit gespart",
+            "moreEngagement": "Mehr Engagement"
+        }
+    },
+    "preview": {
+        "title": "Automata Dashboard",
+        "birthdayRewards": "Geburtstags-Belohnungen",
+        "birthdayDesc": "Senden Sie personalisierte Angebote zum Geburtstag",
+        "loyaltyPoints": "Treuepunkte",
+        "loyaltyDesc": "Belohnen Sie Stammkunden automatisch",
+        "aiSuggested": "KI-Vorschlag",
+        "happyHourDesc": "Happy-Hour-Benachrichtigungen für Kunden in der Nähe",
+        "active": "Aktiv",
+        "review": "Prüfen"
+    },
+    "comparison": {
+        "title": "Der Alte Weg Ist Überholt",
+        "subtitle": "Traditionelle Apps setzen das Pferd hinter den Wagen. Sie bauen Funktionen und hoffen, dass Kunden kommen. Automata dreht das Skript um.",
+        "oldWay": {
+            "title": "Der alte Weg",
+            "item1": "Erst teure App bauen",
+            "item2": "Hoffen, dass Kunden kommen",
+            "item3": "Beziehungen manuell verwalten",
+            "item4": "Automatisierungen als Nachgedanke",
+            "item5": "Generisch, Einheitsgröße"
+        },
+        "newWay": {
+            "title": "Der Automata-Weg",
+            "item1": "Mit Ihren Kunden beginnen",
+            "item2": "KI schlägt Automatisierungen vor",
+            "item3": "Beziehungen skalieren automatisch",
+            "item4": "Apps entstehen aus Erfolg",
+            "item5": "Personalisiert für jeden Kunden"
+        }
+    },
+    "features": {
+        "tag": "Funktionen",
+        "title": "Alles Was Sie Brauchen, Um Kundenbeziehungen Zu Automatisieren",
+        "subtitle": "Leistungsstarke Tools, die nahtlos zusammenarbeiten",
+        "dataImport": {
+            "title": "Einfacher Datenimport",
+            "desc": "Laden Sie Ihre Kundenliste per CSV hoch oder geben Sie sie manuell ein. Fügen Sie benutzerdefinierte Felder hinzu, die für Ihr Unternehmen wichtig sind."
+        },
+        "scheduling": {
+            "title": "Intelligente Planung",
+            "desc": "Wöchentliche, monatliche oder ereignisbasierte Auslöser. KI optimiert Sendezeiten für maximales Engagement."
+        },
+        "aiProposals": {
+            "title": "KI-gestützte Vorschläge",
+            "desc": "Unsere KI analysiert Ihr Unternehmen und Ihre Kunden und schlägt dann auf Ihre Ziele zugeschnittene Automatisierungen vor."
+        },
+        "multiChannel": {
+            "title": "Multi-Channel-Zustellung",
+            "desc": "Erreichen Sie Kunden per E-Mail oder SMS. Jede Nachricht mit ihren einzigartigen Details personalisiert."
+        },
+        "humanLoop": {
+            "title": "Mensch in der Schleife",
+            "desc": "KI schlägt vor, Sie genehmigen. Volle Kontrolle über jede Automatisierung, bevor sie live geht."
+        },
+        "analytics": {
+            "title": "Echtzeit-Analysen",
+            "desc": "Verfolgen Sie Engagement, messen Sie Wachstum und sehen Sie, welche Automatisierungen den größten Wert liefern."
+        }
+    },
+    "howItWorks": {
+        "tag": "So Funktioniert's",
+        "title": "Von Daten Zu Beziehungen in 4 Schritten",
+        "subtitle": "Starten Sie in Minuten, nicht Monaten",
+        "step1": {
+            "title": "Laden Sie Ihre Kunden hoch",
+            "desc": "Importieren Sie Ihre bestehende Kundenliste per CSV oder fügen Sie sie manuell hinzu. Fügen Sie beliebige Daten hinzu — Geburtstage, Standorte, Präferenzen."
+        },
+        "step2": {
+            "title": "Erzählen Sie uns von Ihrem Unternehmen",
+            "desc": "Teilen Sie Ihren Unternehmenstyp, Ihre Ziele und was Erfolg für Sie bedeutet. Dieser Kontext hilft unserer KI, klügere Vorschläge zu machen."
+        },
+        "step3": {
+            "title": "Überprüfen Sie KI-Vorschläge",
+            "desc": "Unsere KI analysiert Ihre Daten und schlägt 5-10 maßgeschneiderte Automatisierungen vor. Überprüfen Sie jede, bearbeiten Sie bei Bedarf und genehmigen Sie mit einem Klick."
+        },
+        "step4": {
+            "title": "Beobachten Sie das Wachstum der Beziehungen",
+            "desc": "Automatisierungen laufen nach Ihrem Zeitplan. Kunden erhalten personalisierte Nachrichten. Sie konzentrieren sich auf das Wesentliche — Ihr Geschäft."
+        }
+    },
+    "templates": {
+        "tag": "Vorlagen",
+        "title": "Sofort Einsatzbereite Automatisierungen",
+        "subtitle": "Durchsuchen Sie unsere Bibliothek bewährter Vorlagen. Anpassen und in Minuten starten.",
+        "automate": "Automatisieren",
+        "browseAll": "Alle Vorlagen durchsuchen",
+        "badges": {
+            "popular": "Beliebt",
+            "featured": "Empfohlen",
+            "new": "Neu"
+        },
+        "industries": {
+            "all": "Alle Branchen",
+            "retail": "Einzelhandel",
+            "food": "Gastronomie",
+            "health": "Gesundheit",
+            "services": "Dienstleistungen"
+        },
+        "birthday": {
+            "title": "Geburtstags-Belohnungen",
+            "desc": "Senden Sie automatisch personalisierte Geburtstagsangebote an Kunden. Steigern Sie Loyalität und wiederkehrende Besuche."
+        },
+        "loyalty": {
+            "title": "Treuepunkte-Programm",
+            "desc": "Belohnen Sie Stammkunden automatisch. Verfolgen Sie Punkte und senden Sie Einlösungserinnerungen."
+        },
+        "happyHour": {
+            "title": "Happy-Hour-Benachrichtigungen",
+            "desc": "Informieren Sie Kunden in der Nähe über Happy-Hour-Angebote. Steigern Sie den Besucherverkehr in ruhigen Zeiten."
+        },
+        "appointment": {
+            "title": "Terminerinnerungen",
+            "desc": "Reduzieren Sie Nichterscheinen mit automatischen Erinnerungen. Senden Sie per SMS oder E-Mail 24 Stunden vorher."
+        },
+        "postVisit": {
+            "title": "Nachbesuchs-Follow-up",
+            "desc": "Danken Sie Kunden nach ihrem Besuch und bitten Sie um Feedback. Bauen Sie dauerhafte Beziehungen auf."
+        },
+        "winBack": {
+            "title": "Rückgewinnungskampagne",
+            "desc": "Reaktivieren Sie Kunden, die seit über 30 Tagen nicht besucht haben, mit personalisierten Angeboten."
+        }
+    },
+    "testimonials": {
+        "tag": "Erfahrungen",
+        "title": "Von Unternehmen Überall Geliebt",
+        "subtitle": "Sehen Sie, was unsere Kunden sagen",
+        "quote1": {
+            "text": "Wir sind vom manuellen SMS-Versand an 50 Kunden zur automatischen Interaktion mit 5.000 übergegangen — ohne jemanden einzustellen. Unsere Wiederholungsbesuche sind um 40% gestiegen.",
+            "author": "Maria Rodriguez",
+            "title": "Inhaberin, Restaurant Casa del Sol"
+        }
+    },
+    "pricing": {
+        "tag": "Preise",
+        "title": "Einfache, Transparente Preise",
+        "subtitle": "Zahlen Sie für das, was Sie nutzen. Keine versteckten Gebühren.",
+        "free": {
+            "name": "Kostenlose Testversion",
+            "desc": "Starten Sie und erleben Sie die Kraft der Automatisierung",
+            "period": "für 14 Tage",
+            "feature1": "Bis zu 100 Kunden",
+            "feature2": "2 aktive Automatisierungen",
+            "feature3": "100 Nachrichten inklusive",
+            "feature4": "E-Mail-Support",
+            "cta": "Zur Warteliste"
+        },
+        "growth": {
+            "badge": "Am Beliebtesten",
+            "name": "Wachstum",
+            "desc": "Für Unternehmen, die bereit sind, Beziehungen zu skalieren",
+            "period": "pro Automatisierung",
+            "feature1": "Unbegrenzte Kunden",
+            "feature2": "Unbegrenzte Automatisierungen",
+            "feature3": "E-Mail + SMS Kanäle",
+            "feature4": "KI-gestützte Vorschläge",
+            "feature5": "Prioritäts-Support",
+            "cta": "Loslegen",
+            "note": "+ 29€/Monat Hosting · Nutzungsbasierte Nachrichten"
+        },
+        "enterprise": {
+            "name": "Unternehmen",
+            "desc": "Für große Teams mit individuellen Anforderungen",
+            "price": "Individuell",
+            "period": "auf Sie zugeschnitten",
+            "feature1": "Alles in Wachstum",
+            "feature2": "Individuelle Integrationen",
+            "feature3": "Dedizierter Support",
+            "feature4": "SLA-Garantie",
+            "cta": "Vertrieb kontaktieren"
+        }
+    },
+    "cta": {
+        "title": "Seien Sie Der Erste, Der Kundenbeziehungen Automatisiert",
+        "subtitle": "Treten Sie der Warteliste bei und erhalten Sie frühen Zugang zu KI-gestützten Automatisierungen.",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+        "joinWaitlist": "Warteliste beitreten",
+        "note": "Wir benachrichtigen Sie, wenn wir starten."
+    },
+    "footer": {
+        "tagline": "Automatisierungen, die menschliche Verbindungen verstärken.",
+        "product": "Produkt",
+        "company": "Unternehmen",
+        "legal": "Rechtliches",
+        "about": "Über uns",
+        "careers": "Karriere",
+        "privacy": "Datenschutz",
+        "terms": "AGB",
+        "copyright": "© 2026 Automata. Alle Rechte vorbehalten."
+    },
+    "dashboard": {
+        "title": "Ihre Projekte",
+        "subtitle": "Verwalten Sie Ihre Automatisierungsprojekte",
+        "newProject": "Neues Projekt",
+        "noProjects": "Noch keine Projekte",
+        "noProjectsDesc": "Erstellen Sie Ihr erstes Projekt, um mit der Automatisierung zu beginnen",
+        "createFirst": "Erstellen Sie Ihr erstes Projekt"
+    },
+    "project": {
+        "overview": "Übersicht",
+        "automations": "Automatisierungen",
+        "customers": "Kunden",
+        "settings": "Einstellungen",
+        "newAutomation": "Neue Automatisierung",
+        "noAutomations": "Noch keine Automatisierungen",
+        "createAutomation": "Erstellen Sie Ihre erste Automatisierung, um zu beginnen",
+        "details": "Projektdetails",
+        "businessContext": "Geschäftskontext",
+        "edit": "Bearbeiten",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "delete": "Projekt löschen",
+        "dangerZone": "Gefahrenzone",
+        "dangerDesc": "Sobald Sie ein Projekt löschen, gibt es kein Zurück.",
+        "goals": "Ziele",
+        "painPoints": "Schmerzpunkte",
+        "competitors": "Wettbewerber",
+        "competitiveAdvantage": "Wettbewerbsvorteil",
+        "targetMarket": "Zielmarkt",
+        "location": "Standort",
+        "industry": "Branche",
+        "description": "Beschreibung",
+        "name": "Projektname"
+    },
+    "automationsPage": {
+        "title": "Automatisierungen",
+        "subtitle": "Verwalten Sie alle Ihre Automatisierungen projektübergreifend",
+        "all": "Alle",
+        "active": "Aktiv",
+        "inactive": "Inaktiv",
+        "archived": "Archiviert",
+        "search": "Automatisierungen suchen...",
+        "noAutomations": "Noch keine Automatisierungen",
+        "noAutomationsDesc": "Erstellen Sie Ihre erste Automatisierung aus einem Projekt.",
+        "open": "Öffnen",
+        "archive": "Archivieren",
+        "restore": "Wiederherstellen",
+        "delete": "Löschen"
+    },
+    "customers": {
+        "title": "Kunden",
+        "subtitle": "Verwalten Sie Ihre Kundendatenbank",
+        "total": "Gesamtkunden",
+        "newThisMonth": "Neu diesen Monat",
+        "withEmail": "Mit E-Mail",
+        "addCustomer": "Kunde hinzufügen",
+        "importCsv": "CSV importieren",
+        "search": "Kunden suchen...",
+        "allTags": "Alle Tags",
+        "allSources": "Alle Quellen",
+        "noCustomers": "Noch keine Kunden",
+        "noCustomersDesc": "Fügen Sie Ihren ersten Kunden hinzu oder importieren Sie aus CSV",
+        "name": "Name",
+        "email": "E-Mail",
+        "company": "Unternehmen",
+        "tags": "Tags",
+        "source": "Quelle",
+        "added": "Hinzugefügt",
+        "actions": "Aktionen"
+    },
+    "opportunities": {
+        "title": "KI-Chancen",
+        "analyze": "KI-Chancen generieren",
+        "analyzing": "Analysiere Ihr Unternehmen...",
+        "ready": "Bereit, KI-Chancen zu generieren",
+        "incomplete": "Fügen Sie {fields} Ihres Projekts hinzu, um KI-Analyse zu aktivieren",
+        "showMore": "Mehr Chancen anzeigen",
+        "startAutomation": "Automatisierung starten",
+        "dismiss": "Verwerfen",
+        "whyThis": "Warum dies?"
+    },
+    "modal": {
+        "createProject": "Neues Projekt erstellen",
+        "editProject": "Projekt bearbeiten",
+        "createAutomation": "Automatisierung erstellen",
+        "addCustomer": "Kunde hinzufügen",
+        "editCustomer": "Kunde bearbeiten",
+        "importCsv": "CSV importieren",
+        "close": "Schließen",
+        "cancel": "Abbrechen",
+        "create": "Erstellen",
+        "save": "Änderungen speichern"
+    },
+    "form": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "company": "Unternehmen",
+        "required": "Erforderlich",
+        "optional": "Optional"
+    },
+    "common": {
+        "loading": "Wird geladen...",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "confirm": "Bestätigen",
+        "yes": "Ja",
+        "no": "Nein",
+        "back": "Zurück",
+        "next": "Weiter",
+        "previous": "Vorherige",
+        "page": "Seite",
+        "of": "von"
+    }
+}

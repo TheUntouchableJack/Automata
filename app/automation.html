@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation - Automata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+    <link rel="stylesheet" href="danger-modal.css">
+    <style>
+        /* Automation-specific styles */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .breadcrumb a {
+            color: var(--color-text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+
+        .breadcrumb svg {
+            opacity: 0.5;
+        }
+
+        .automation-header-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .automation-header-info {
+            flex: 1;
+        }
+
+        .automation-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            margin-top: 8px;
+        }
+
+        .automation-status-badge.active {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-accent);
+        }
+
+        .automation-status-badge.inactive {
+            background: var(--color-bg-secondary);
+            color: var(--color-text-muted);
+        }
+
+        .automation-status-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .automation-header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Toggle Switch Large */
+        .toggle-switch-large {
+            position: relative;
+            width: 52px;
+            height: 28px;
+        }
+
+        .toggle-switch-large input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-switch-large .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--color-border);
+            transition: var(--transition-base);
+            border-radius: 14px;
+        }
+
+        .toggle-switch-large .toggle-slider::before {
+            position: absolute;
+            content: '';
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: var(--transition-base);
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toggle-switch-large input:checked + .toggle-slider {
+            background-color: var(--color-accent);
+        }
+
+        .toggle-switch-large input:checked + .toggle-slider::before {
+            transform: translateX(24px);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 32px;
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 24px;
+            background: var(--color-bg);
+        }
+
+        .tab {
+            padding: 16px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            border: none;
+            background: none;
+            cursor: pointer;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .tab:hover {
+            color: var(--color-text);
+        }
+
+        .tab.active {
+            color: var(--color-primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-primary);
+            border-radius: 1px 1px 0 0;
+        }
+
+        /* Settings Panel */
+        .settings-panel {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .settings-panel h3 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* Blog Settings */
+        .blog-settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .blog-settings-grid .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Keywords Input */
+        .keywords-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            min-height: 48px;
+            align-items: center;
+            cursor: text;
+        }
+
+        .keywords-input:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .keyword-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--color-primary);
+            font-size: 13px;
+            border-radius: var(--radius-sm);
+        }
+
+        .keyword-tag button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            padding: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            opacity: 0.7;
+        }
+
+        .keyword-tag button:hover {
+            opacity: 1;
+        }
+
+        .keywords-input input {
+            flex: 1;
+            min-width: 100px;
+            padding: 4px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            background: transparent;
+        }
+
+        /* Generate Button */
+        .generate-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+        }
+
+        .generate-info h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .generate-info p {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* Blog Posts List */
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .post-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+        }
+
+        .post-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .post-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .post-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        .post-status {
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: var(--radius-sm);
+        }
+
+        .post-status.draft {
+            background: var(--color-bg-secondary);
+            color: var(--color-text-muted);
+        }
+
+        .post-status.published {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-accent);
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .post-actions .btn-small {
+            padding: 6px 12px;
+        }
+
+        /* Danger Zone */
+        .danger-zone {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .danger-zone h3 {
+            color: var(--color-error);
+        }
+
+        .btn-danger {
+            background: var(--color-error);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .automation-header-content {
+                flex-direction: column;
+            }
+
+            .tabs {
+                gap: 24px;
+                padding: 0 16px;
+                overflow-x: auto;
+            }
+
+            .blog-settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .generate-section {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .post-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-actions {
+                width: 100%;
+                margin-top: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="container">
+                <a href="/app/dashboard.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" id="user-menu-btn">
+                            <span class="user-avatar" id="user-avatar">?</span>
+                            <span class="user-name" id="user-name">Loading...</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="/app/dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+                            <a href="/app/automations.html" data-i18n="nav.automations">Automations</a>
+                            <a href="/app/customers.html" data-i18n="nav.customers">Customers</a>
+                            <div class="divider"></div>
+                            <button class="logout-btn" id="logout-btn" data-i18n="nav.signOut">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <a href="/app/dashboard.html">Projects</a>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a href="#" id="breadcrumb-project">Loading...</a>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="breadcrumb-automation">Loading...</span>
+                    </div>
+
+                    <div class="automation-header-content">
+                        <div class="automation-header-info">
+                            <h1 class="page-title" id="automation-title">Loading...</h1>
+                            <p class="page-subtitle" id="automation-description"></p>
+                            <div class="automation-status-badge inactive" id="status-badge">
+                                <span class="dot"></span>
+                                <span id="status-text">Inactive</span>
+                            </div>
+                        </div>
+                        <div class="automation-header-actions">
+                            <label class="toggle-switch-large">
+                                <input type="checkbox" id="automation-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="posts">Generated Posts</button>
+                <button class="tab" data-tab="settings">Settings</button>
+            </div>
+
+            <!-- Tab Content -->
+            <section class="projects-section">
+                <div class="container">
+                    <!-- Loading State -->
+                    <div class="loading-container" id="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+
+                    <!-- Posts Tab -->
+                    <div class="tab-content" id="posts-tab" style="display: none;">
+                        <!-- Generate Section -->
+                        <div class="generate-section">
+                            <div class="generate-info">
+                                <h4>Generate Content</h4>
+                                <p>Click to manually generate a new blog post (AI integration coming soon)</p>
+                            </div>
+                            <button class="btn btn-primary" id="generate-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 2L12 8L18 8L13 12L15 18L10 14L5 18L7 12L2 8L8 8L10 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                                Generate Now
+                            </button>
+                        </div>
+
+                        <!-- Posts List -->
+                        <div class="posts-list" id="posts-list"></div>
+
+                        <div class="empty-state" id="empty-posts" style="display: none;">
+                            <div class="empty-state-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect x="8" y="6" width="24" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M14 14H26M14 20H26M14 26H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>No posts yet</h3>
+                            <p>Generate your first blog post or wait for the scheduler</p>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-content" id="settings-tab" style="display: none;">
+                        <div class="settings-panel">
+                            <h3>Automation Details</h3>
+                            <form id="automation-settings-form">
+                                <div class="form-group">
+                                    <label for="settings-name">Automation Name</label>
+                                    <input type="text" id="settings-name" name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="settings-description">Description</label>
+                                    <textarea id="settings-description" name="description"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="settings-frequency">Frequency</label>
+                                    <select id="settings-frequency" name="frequency">
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="save-details-btn">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-panel">
+                            <h3>Blog Generation Settings</h3>
+                            <form id="blog-settings-form">
+                                <div class="blog-settings-grid">
+                                    <div class="form-group">
+                                        <label for="settings-tone">Content Tone</label>
+                                        <select id="settings-tone" name="tone">
+                                            <option value="professional">Professional</option>
+                                            <option value="casual">Casual</option>
+                                            <option value="educational">Educational</option>
+                                            <option value="persuasive">Persuasive</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="settings-length">Article Length</label>
+                                        <select id="settings-length" name="length">
+                                            <option value="short">Short (~500 words)</option>
+                                            <option value="medium">Medium (~1000 words)</option>
+                                            <option value="long">Long (~1500+ words)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group full-width">
+                                        <label>Target Industries</label>
+                                        <div class="keywords-input" id="industries-input">
+                                            <input type="text" placeholder="Add industry and press Enter" id="industry-field">
+                                        </div>
+                                        <span class="form-helper">Press Enter to add each industry</span>
+                                    </div>
+
+                                    <div class="form-group full-width">
+                                        <label>SEO Keywords</label>
+                                        <div class="keywords-input" id="keywords-input">
+                                            <input type="text" placeholder="Add keyword and press Enter" id="keyword-field">
+                                        </div>
+                                        <span class="form-helper">Press Enter to add each keyword</span>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="save-blog-settings-btn" style="margin-top: 20px;">
+                                    Save Blog Settings
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Note: Automations can be deleted from Manage Automations page -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="auth.js?v=2"></script>
+    <script src="celebrate.js?v=2"></script>
+    <script src="danger-modal.js?v=1"></script>
+    <script src="automation.js?v=4"></script>
+</body>
+</html>

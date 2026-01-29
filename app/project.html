@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Automata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+    <link rel="stylesheet" href="danger-modal.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="container">
+                <a href="/app/dashboard.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <nav class="main-nav">
+                    <a href="/app/dashboard.html" class="nav-link" data-i18n="nav.projects">Projects</a>
+                    <a href="/app/automations.html" class="nav-link" data-i18n="nav.automations">Automations</a>
+                    <a href="/app/customers.html" class="nav-link" data-i18n="nav.customers">Customers</a>
+                </nav>
+
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" id="user-menu-btn">
+                            <span class="user-avatar" id="user-avatar">?</span>
+                            <span class="user-name" id="user-name">Loading...</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="/app/dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+                            <a href="/app/automations.html" data-i18n="nav.automations">Automations</a>
+                            <a href="/app/customers.html" data-i18n="nav.customers">Customers</a>
+                            <div class="divider"></div>
+                            <button class="logout-btn" id="logout-btn" data-i18n="nav.signOut">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <a href="/app/dashboard.html" data-i18n="nav.projects">Projects</a>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="breadcrumb-project">Loading...</span>
+                    </div>
+
+                    <div class="project-header-content">
+                        <div class="project-header-info">
+                            <h1 class="page-title" id="project-title">Loading...</h1>
+                            <p class="page-subtitle" id="project-description"></p>
+                            <span class="project-industry-badge" id="project-industry" style="display: none;"></span>
+                        </div>
+                        <div class="project-header-actions">
+                            <button class="btn btn-primary" id="new-automation-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span data-i18n="project.newAutomation">New Automation</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="overview" data-i18n="project.overview">Overview</button>
+                <button class="tab" data-tab="automations" data-i18n="project.automations">Automations</button>
+                <button class="tab" data-tab="customers" data-i18n="project.customers">Customers</button>
+                <button class="tab" data-tab="settings" data-i18n="project.settings">Settings</button>
+            </div>
+
+            <!-- Tab Content -->
+            <section class="projects-section">
+                <div class="container">
+                    <!-- Loading State -->
+                    <div class="loading-container" id="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+
+                    <!-- Overview Tab -->
+                    <div class="tab-content" id="overview-tab">
+                        <!-- Incomplete Data Banner -->
+                        <div class="incomplete-banner" id="incomplete-banner" style="display: none;">
+                            <div class="banner-content">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M10 6V10M10 14V14.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span id="banner-message">Complete your project details to enable AI analysis</span>
+                            </div>
+                            <button class="banner-dismiss" id="dismiss-banner" title="Dismiss">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Top Action Bar -->
+                        <div class="overview-action-bar">
+                            <div class="action-bar-info">
+                                <span class="action-bar-title" data-i18n="opportunities.title">AI Analysis</span>
+                                <span class="action-bar-subtitle" id="analysis-status" data-i18n="opportunities.ready">Generate automation opportunities for your project</span>
+                            </div>
+                            <button class="btn btn-primary" id="analyze-btn" disabled>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 2V4M10 16V18M4 10H2M18 10H16M15.66 15.66L14.24 14.24M15.66 4.34L14.24 5.76M4.34 15.66L5.76 14.24M4.34 4.34L5.76 5.76" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span data-i18n="opportunities.analyze">Generate AI Opportunities</span>
+                            </button>
+                        </div>
+
+                        <!-- AI Diagnosis Section -->
+                        <div class="diagnosis-section" id="diagnosis-section">
+                            <div class="diagnosis-header">
+                                <div class="diagnosis-info">
+                                    <h3>AI Automation Suggestions</h3>
+                                    <p>Let AI analyze your business and suggest tailored automations</p>
+                                </div>
+                                <button class="btn btn-secondary" id="run-diagnosis-btn">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18C14.42 18 18 14.42 18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M18 2L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M13 2H18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Suggest Automations
+                                </button>
+                            </div>
+                            <div class="diagnosis-results" id="diagnosis-results" style="display: none;">
+                                <!-- Diagnosis cards will be inserted here -->
+                            </div>
+                            <div class="diagnosis-loading" id="diagnosis-loading" style="display: none;">
+                                <div class="loading-spinner"></div>
+                                <p>Analyzing your business context...</p>
+                            </div>
+                        </div>
+
+                        <!-- Analyzing State -->
+                        <div class="analyzing-state" id="analyzing-state" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <p>Analyzing your project and customer data...</p>
+                        </div>
+
+                        <!-- Main Content Area -->
+                        <div class="overview-content" id="overview-content">
+                            <!-- Left Column: Project Info -->
+                            <div class="overview-left" id="overview-left">
+                                <!-- Project Details Section -->
+                                <div class="overview-section">
+                                    <div class="section-header">
+                                        <h3>Project Details</h3>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="edit-details-btn">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Edit
+                                        </button>
+                                    </div>
+
+                                    <!-- View Mode -->
+                                    <div id="details-view-mode">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Project Name</span>
+                                            <span class="detail-value" id="view-name">-</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Industry</span>
+                                            <span class="detail-value" id="view-industry">-</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Description</span>
+                                            <p class="detail-value detail-text" id="view-description">-</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Target Market</span>
+                                            <p class="detail-value detail-text" id="view-target-market">-</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Location</span>
+                                            <p class="detail-value detail-text" id="view-location">-</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Edit Mode -->
+                                    <form id="project-details-form" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="details-name">Project Name</label>
+                                            <input type="text" id="details-name" name="name" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details-industry">Industry</label>
+                                            <select id="details-industry" name="industry">
+                                                <option value="">Select an industry</option>
+                                                <option value="agnostic">Agnostic / All Industries</option>
+                                                <option value="food">Food & Restaurant</option>
+                                                <option value="health">Health & Wellness</option>
+                                                <option value="service">Professional Services</option>
+                                                <option value="politics">Politics & Advocacy</option>
+                                                <option value="technology">Technology</option>
+                                                <option value="retail">Retail & E-commerce</option>
+                                                <option value="education">Education</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details-description">Description</label>
+                                            <textarea id="details-description" name="description" class="textarea-lg" placeholder="What is this project about?"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details-target-market">Target Market</label>
+                                            <textarea id="details-target-market" name="target_market" class="textarea-lg" placeholder="Describe your target market, ideal customers, demographics..."></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details-location">Location</label>
+                                            <textarea id="details-location" name="location" class="textarea-lg" placeholder="Geographic regions, markets, or areas you serve..."></textarea>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-secondary" id="cancel-details-btn">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" id="save-details-btn">Save Details</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Business Context Section -->
+                                <div class="overview-section">
+                                    <div class="section-header">
+                                        <h3>Business Context</h3>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="edit-context-btn">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Edit
+                                        </button>
+                                    </div>
+
+                                    <!-- View Mode -->
+                                    <div id="context-view-mode">
+                                        <div class="context-item">
+                                            <span class="detail-label">Goals</span>
+                                            <div class="tags-display" id="view-goals">
+                                                <span class="empty-text">No goals set</span>
+                                            </div>
+                                        </div>
+                                        <div class="context-item">
+                                            <span class="detail-label">Pain Points</span>
+                                            <div class="tags-display" id="view-pain-points">
+                                                <span class="empty-text">No pain points set</span>
+                                            </div>
+                                        </div>
+                                        <div class="context-item">
+                                            <span class="detail-label">Competitors</span>
+                                            <div class="tags-display" id="view-competitors">
+                                                <span class="empty-text">No competitors set</span>
+                                            </div>
+                                        </div>
+                                        <div class="context-item">
+                                            <span class="detail-label">Competitive Advantage</span>
+                                            <p class="detail-value detail-text" id="view-competitive-advantage">-</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Edit Mode -->
+                                    <div id="context-edit-mode" style="display: none;">
+                                        <div class="form-group">
+                                            <label>Goals</label>
+                                            <textarea id="goals-textarea" class="textarea-lg" placeholder="What are your business goals? (one per line)&#10;e.g., Increase customer retention&#10;Boost email open rates&#10;Reduce churn by 20%"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Pain Points</label>
+                                            <textarea id="pain-points-textarea" class="textarea-lg" placeholder="What challenges are you facing? (one per line)&#10;e.g., Low email engagement&#10;High customer churn&#10;Inconsistent follow-up"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Competitors</label>
+                                            <textarea id="competitors-textarea" class="textarea-lg" placeholder="Who are your main competitors? (one per line)&#10;e.g., Competitor A&#10;Competitor B"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Competitive Advantage</label>
+                                            <textarea id="competitive-advantage-textarea" class="textarea-lg" placeholder="What makes you different from competitors?&#10;e.g., Better pricing, unique features, superior service..."></textarea>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-secondary" id="cancel-context-btn">Cancel</button>
+                                            <button type="button" class="btn btn-primary" id="save-context-btn">Save Context</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Opportunities (shown after analysis) -->
+                            <div class="overview-right" id="overview-right" style="display: none;">
+                                <div class="overview-section">
+                                    <div class="section-header">
+                                        <h3>AI Opportunities</h3>
+                                        <button class="btn btn-secondary btn-sm" id="refresh-opportunities-btn">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                                <path d="M8 2V5H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Refresh
+                                        </button>
+                                    </div>
+
+                                    <div class="opportunities-cards" id="opportunities-list">
+                                        <!-- Opportunity cards will be inserted here -->
+                                    </div>
+
+                                    <div class="show-more-container" id="show-more-container" style="display: none;">
+                                        <button class="btn btn-secondary" id="show-more-btn">Show More Opportunities</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Automations Tab -->
+                    <div class="tab-content" id="automations-tab" style="display: none;">
+                        <div class="automations-list" id="automations-list"></div>
+
+                        <div class="empty-state" id="empty-automations" style="display: none;">
+                            <div class="empty-state-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M20 12V20L26 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>No automations yet</h3>
+                            <p>Create your first automation to start generating content</p>
+                            <button class="btn btn-primary" id="empty-new-automation-btn">
+                                Create Your First Automation
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Customers Tab -->
+                    <div class="tab-content" id="customers-tab" style="display: none;">
+                        <div class="tab-header">
+                            <div>
+                                <h3>Project Customers</h3>
+                                <p class="tab-description">Customers assigned to this project for targeted automations</p>
+                            </div>
+                            <button class="btn btn-primary" id="add-project-customers-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Add Customers
+                            </button>
+                        </div>
+
+                        <div class="project-customers-list" id="project-customers-list">
+                            <!-- Project customers will be inserted here -->
+                        </div>
+
+                        <div class="empty-state" id="empty-project-customers" style="display: none;">
+                            <div class="empty-state-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 34C8 27.3726 13.3726 22 20 22C26.6274 22 32 27.3726 32 34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>No customers in this project</h3>
+                            <p>Add customers from your organization to target them with automations</p>
+                            <button class="btn btn-primary" id="empty-add-customers-btn">Add Customers</button>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-content" id="settings-tab" style="display: none;">
+                        <div class="settings-section danger-zone">
+                            <h3>Danger Zone</h3>
+                            <p style="margin-bottom: 16px; color: var(--color-text-secondary);">
+                                Permanently delete this project and all its automations. This action cannot be undone.
+                            </p>
+                            <button class="btn btn-danger" id="delete-project-btn">Delete Project</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Customers Modal -->
+    <div class="modal-overlay" id="add-customers-modal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h2 id="customers-modal-title">Add Customers to Project</h2>
+                <button class="modal-close" id="customers-modal-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Select Existing View -->
+            <div id="select-customers-view">
+                <div class="modal-body">
+                    <div class="customer-search-box">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <input type="text" id="customer-search" placeholder="Search customers...">
+                    </div>
+                    <div class="selectable-customers-list" id="selectable-customers-list">
+                        <div class="loading-spinner" id="customers-loading"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="create-new-customer-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Create New
+                    </button>
+                    <div class="modal-actions">
+                        <span class="selected-count" id="selected-count">0 selected</span>
+                        <button type="button" class="btn btn-secondary" id="customers-modal-cancel">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="add-selected-customers-btn" disabled>Add Selected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create New Customer View -->
+            <div id="create-customer-view" style="display: none;">
+                <form id="new-customer-form">
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="new-customer-first-name">First Name</label>
+                                <input type="text" id="new-customer-first-name" name="first_name" placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-customer-last-name">Last Name</label>
+                                <input type="text" id="new-customer-last-name" name="last_name" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-customer-email">Email</label>
+                            <input type="email" id="new-customer-email" name="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-customer-phone">Phone</label>
+                            <input type="tel" id="new-customer-phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-customer-company">Company</label>
+                            <input type="text" id="new-customer-company" name="company" placeholder="Acme Inc.">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="back-to-select-btn">Back</button>
+                        <button type="submit" class="btn btn-primary" id="save-new-customer-btn">Create & Add to Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Automation Modal -->
+    <div class="modal-overlay" id="create-automation-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Create New Automation</h2>
+                <button class="modal-close" id="automation-modal-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="create-automation-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Icon & Name</label>
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div id="project-icon-preview" style="width: 56px; height: 56px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--color-primary-subtle); color: var(--color-primary); border-radius: var(--radius-lg); cursor: pointer;" title="Click to change icon" onclick="toggleProjectIconPicker()">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="6" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 9V12M12 12L6 15M12 12L18 15" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <input type="text" id="automation-name" name="name" placeholder="e.g., Weekly Blog Posts" required>
+                                <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px;">Icon auto-detected from name</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="automation-icon" name="icon" value="workflow">
+                        <div id="project-icon-picker" style="display: none; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 12px; background: var(--color-bg-secondary); border-radius: var(--radius-md); margin-top: 12px; max-height: 200px; overflow-y: auto;"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="automation-description">Description</label>
+                        <textarea id="automation-description" name="description" placeholder="What does this automation do?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="automation-type">Type</label>
+                        <select id="automation-type" name="type" required>
+                            <option value="blog_generation">Blog Generation</option>
+                            <option value="email">Email Campaign</option>
+                            <option value="workflow">Workflow</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="automation-frequency">Frequency</label>
+                        <select id="automation-frequency" name="frequency">
+                            <option value="daily">Daily</option>
+                            <option value="weekly" selected>Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="automation-segment">Target Customers</label>
+                        <select id="automation-segment" name="target_segment">
+                            <option value="all">All Organization Customers</option>
+                            <option value="project">Project Customers Only</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="automation-modal-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="create-automation-btn">Create Automation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="auth.js?v=2"></script>
+    <script src="celebrate.js?v=2"></script>
+    <script src="danger-modal.js?v=1"></script>
+    <script src="icon-library.js?v=1"></script>
+    <script src="templates-library.js?v=1"></script>
+    <script src="opportunities.js?v=1"></script>
+    <script src="project.js?v=8"></script>
+</body>
+</html>

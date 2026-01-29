@@ -1,0 +1,334 @@
+{
+    "nav": {
+        "automations": "Automations",
+        "features": "Features",
+        "howItWorks": "How It Works",
+        "pricing": "Pricing",
+        "blog": "Blog",
+        "login": "Log In",
+        "joinWaitlist": "Join Waitlist",
+        "projects": "Projects",
+        "customers": "Customers",
+        "dashboard": "Dashboard",
+        "signOut": "Sign Out"
+    },
+    "hero": {
+        "badge": "Now in Beta — Join the waitlist",
+        "titleLine1": "One person.",
+        "titleLine2": "Millions of relationships.",
+        "subtitle": "Upload your customer data. Let AI propose personalized automations. Build meaningful connections at scale — without losing the human touch.",
+        "joinWaitlist": "Join the Waitlist",
+        "seeHowItWorks": "See How It Works",
+        "stats": {
+            "fasterSetup": "Faster Setup",
+            "timeSaved": "Time Saved",
+            "moreEngagement": "More Engagement"
+        }
+    },
+    "preview": {
+        "title": "Automata Dashboard",
+        "birthdayRewards": "Birthday Rewards",
+        "birthdayDesc": "Send personalized offers on customer birthdays",
+        "loyaltyPoints": "Loyalty Points",
+        "loyaltyDesc": "Reward repeat customers automatically",
+        "aiSuggested": "AI Suggested",
+        "happyHourDesc": "Happy hour alerts for nearby customers",
+        "active": "Active",
+        "review": "Review"
+    },
+    "comparison": {
+        "title": "The Old Way Is Broken",
+        "subtitle": "Traditional apps put the cart before the horse. You build features hoping customers will come. Automata flips the script.",
+        "oldWay": {
+            "title": "The Old Way",
+            "item1": "Build expensive app first",
+            "item2": "Hope customers show up",
+            "item3": "Manually manage relationships",
+            "item4": "Automations as afterthought",
+            "item5": "Generic, one-size-fits-all"
+        },
+        "newWay": {
+            "title": "The Automata Way",
+            "item1": "Start with your customers",
+            "item2": "AI proposes automations",
+            "item3": "Relationships scale automatically",
+            "item4": "Apps emerge from success",
+            "item5": "Personalized to each customer"
+        }
+    },
+    "features": {
+        "tag": "Features",
+        "title": "Everything You Need to Automate Customer Relationships",
+        "subtitle": "Powerful tools that work together seamlessly",
+        "dataImport": {
+            "title": "Easy Data Import",
+            "desc": "Upload your customer list via CSV or enter manually. Add custom fields that matter to your business."
+        },
+        "scheduling": {
+            "title": "Smart Scheduling",
+            "desc": "Weekly, monthly, or event-based triggers. AI optimizes send times for maximum engagement."
+        },
+        "aiProposals": {
+            "title": "AI-Powered Proposals",
+            "desc": "Our AI analyzes your business and customers, then suggests automations tailored to your goals."
+        },
+        "multiChannel": {
+            "title": "Multi-Channel Delivery",
+            "desc": "Reach customers via email or SMS. Each message personalized with their unique details."
+        },
+        "humanLoop": {
+            "title": "Human in the Loop",
+            "desc": "AI proposes, you approve. Full control over every automation before it goes live."
+        },
+        "analytics": {
+            "title": "Real-Time Analytics",
+            "desc": "Track engagement, measure growth, and see which automations drive the most value."
+        }
+    },
+    "howItWorks": {
+        "tag": "How It Works",
+        "title": "From Data to Relationships in 4 Steps",
+        "subtitle": "Get started in minutes, not months",
+        "step1": {
+            "title": "Upload Your Customers",
+            "desc": "Import your existing customer list via CSV or add them manually. Include whatever data matters — birthdays, locations, preferences."
+        },
+        "step2": {
+            "title": "Tell Us About Your Business",
+            "desc": "Share your business type, goals, and what success looks like. This context helps our AI make smarter suggestions."
+        },
+        "step3": {
+            "title": "Review AI Suggestions",
+            "desc": "Our AI analyzes your data and proposes 5-10 tailored automations. Review each one, edit if needed, and approve with one click."
+        },
+        "step4": {
+            "title": "Watch Relationships Grow",
+            "desc": "Automations run on your schedule. Customers receive personalized messages. You focus on what matters — your business."
+        }
+    },
+    "templates": {
+        "tag": "Templates",
+        "title": "Ready-to-Use Automations",
+        "subtitle": "Browse our library of proven templates. Customize and launch in minutes.",
+        "automate": "Automate",
+        "browseAll": "Browse All Templates",
+        "badges": {
+            "popular": "Popular",
+            "featured": "Featured",
+            "new": "New"
+        },
+        "industries": {
+            "all": "All Industries",
+            "retail": "Retail",
+            "food": "Food",
+            "health": "Health",
+            "services": "Services"
+        },
+        "birthday": {
+            "title": "Birthday Rewards",
+            "desc": "Automatically send personalized birthday offers to customers. Boost loyalty and drive repeat visits."
+        },
+        "loyalty": {
+            "title": "Loyalty Points Program",
+            "desc": "Reward repeat customers automatically. Track points and send redemption reminders."
+        },
+        "happyHour": {
+            "title": "Happy Hour Alerts",
+            "desc": "Notify nearby customers about happy hour specials. Drive foot traffic during slow hours."
+        },
+        "appointment": {
+            "title": "Appointment Reminders",
+            "desc": "Reduce no-shows with automated reminders. Send via SMS or email 24 hours before."
+        },
+        "postVisit": {
+            "title": "Post-Visit Follow-up",
+            "desc": "Thank customers after their visit and ask for feedback. Build relationships that last."
+        },
+        "winBack": {
+            "title": "Win-Back Campaign",
+            "desc": "Re-engage customers who haven't visited in 30+ days with personalized offers."
+        }
+    },
+    "testimonials": {
+        "tag": "Testimonials",
+        "title": "Loved by Businesses Everywhere",
+        "subtitle": "See what our customers have to say",
+        "quote1": {
+            "text": "We went from manually texting 50 customers to automatically engaging 5,000 — without hiring anyone. Our repeat visits are up 40%.",
+            "author": "Maria Rodriguez",
+            "title": "Owner, Casa del Sol Restaurant"
+        }
+    },
+    "pricing": {
+        "tag": "Pricing",
+        "title": "Simple, Transparent Pricing",
+        "subtitle": "Pay for what you use. No hidden fees.",
+        "free": {
+            "name": "Free Trial",
+            "desc": "Get started and see the power of automation",
+            "period": "for 14 days",
+            "feature1": "Up to 100 customers",
+            "feature2": "2 active automations",
+            "feature3": "100 messages included",
+            "feature4": "Email support",
+            "cta": "Join Waitlist"
+        },
+        "growth": {
+            "badge": "Most Popular",
+            "name": "Growth",
+            "desc": "For businesses ready to scale relationships",
+            "period": "per automation",
+            "feature1": "Unlimited customers",
+            "feature2": "Unlimited automations",
+            "feature3": "Email + SMS channels",
+            "feature4": "AI-powered suggestions",
+            "feature5": "Priority support",
+            "cta": "Get Started",
+            "note": "+ $29/mo hosting · Usage-based messaging"
+        },
+        "enterprise": {
+            "name": "Enterprise",
+            "desc": "For large teams with custom needs",
+            "price": "Custom",
+            "period": "tailored to you",
+            "feature1": "Everything in Growth",
+            "feature2": "Custom integrations",
+            "feature3": "Dedicated support",
+            "feature4": "SLA guarantee",
+            "cta": "Contact Sales"
+        }
+    },
+    "cta": {
+        "title": "Be the First to Automate Your Customer Relationships",
+        "subtitle": "Join the waitlist and get early access to AI-powered automations.",
+        "emailPlaceholder": "Enter your email",
+        "joinWaitlist": "Join Waitlist",
+        "note": "We'll notify you when we launch."
+    },
+    "footer": {
+        "tagline": "Automations that amplify human connection.",
+        "product": "Product",
+        "company": "Company",
+        "legal": "Legal",
+        "about": "About",
+        "careers": "Careers",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "copyright": "© 2026 Automata. All rights reserved."
+    },
+    "dashboard": {
+        "title": "Your Projects",
+        "subtitle": "Manage your automation projects",
+        "newProject": "New Project",
+        "noProjects": "No projects yet",
+        "noProjectsDesc": "Create your first project to start automating",
+        "createFirst": "Create Your First Project"
+    },
+    "project": {
+        "overview": "Overview",
+        "automations": "Automations",
+        "customers": "Customers",
+        "settings": "Settings",
+        "newAutomation": "New Automation",
+        "noAutomations": "No automations yet",
+        "createAutomation": "Create your first automation to get started",
+        "details": "Project Details",
+        "businessContext": "Business Context",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete Project",
+        "dangerZone": "Danger Zone",
+        "dangerDesc": "Once you delete a project, there is no going back.",
+        "goals": "Goals",
+        "painPoints": "Pain Points",
+        "competitors": "Competitors",
+        "competitiveAdvantage": "Competitive Advantage",
+        "targetMarket": "Target Market",
+        "location": "Location",
+        "industry": "Industry",
+        "description": "Description",
+        "name": "Project Name"
+    },
+    "automationsPage": {
+        "title": "Automations",
+        "subtitle": "Manage all your automations across projects",
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
+        "archived": "Archived",
+        "search": "Search automations...",
+        "noAutomations": "No automations yet",
+        "noAutomationsDesc": "Create your first automation from a project.",
+        "open": "Open",
+        "archive": "Archive",
+        "restore": "Restore",
+        "delete": "Delete"
+    },
+    "customers": {
+        "title": "Customers",
+        "subtitle": "Manage your customer database",
+        "total": "Total Customers",
+        "newThisMonth": "New This Month",
+        "withEmail": "With Email",
+        "addCustomer": "Add Customer",
+        "importCsv": "Import CSV",
+        "search": "Search customers...",
+        "allTags": "All Tags",
+        "allSources": "All Sources",
+        "noCustomers": "No customers yet",
+        "noCustomersDesc": "Add your first customer or import from CSV",
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "tags": "Tags",
+        "source": "Source",
+        "added": "Added",
+        "actions": "Actions"
+    },
+    "opportunities": {
+        "title": "AI Opportunities",
+        "analyze": "Generate AI Opportunities",
+        "analyzing": "Analyzing your business...",
+        "ready": "Ready to generate AI opportunities",
+        "incomplete": "Add your project {fields} to enable AI analysis",
+        "showMore": "Show More Opportunities",
+        "startAutomation": "Start Automation",
+        "dismiss": "Dismiss",
+        "whyThis": "Why this?"
+    },
+    "modal": {
+        "createProject": "Create New Project",
+        "editProject": "Edit Project",
+        "createAutomation": "Create Automation",
+        "addCustomer": "Add Customer",
+        "editCustomer": "Edit Customer",
+        "importCsv": "Import CSV",
+        "close": "Close",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save Changes"
+    },
+    "form": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "required": "Required",
+        "optional": "Optional"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "confirm": "Confirm",
+        "yes": "Yes",
+        "no": "No",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "page": "Page",
+        "of": "of"
+    }
+}

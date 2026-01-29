@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Automata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="customers.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+    <link rel="stylesheet" href="danger-modal.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="container">
+                <a href="/app/dashboard.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span class="logo-text">Automata</span>
+                </a>
+
+                <nav class="main-nav">
+                    <a href="/app/dashboard.html" class="nav-link" data-i18n="nav.projects">Projects</a>
+                    <a href="/app/automations.html" class="nav-link" data-i18n="nav.automations">Automations</a>
+                    <a href="/app/customers.html" class="nav-link active" data-i18n="nav.customers">Customers</a>
+                </nav>
+
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="lang-selector-btn" type="button" aria-label="Change language">
+                            <span class="lang-selector-current">EN</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-option active" data-lang="en">EN</a>
+                            <a href="#" class="lang-option" data-lang="es">ES</a>
+                            <a href="#" class="lang-option" data-lang="fr">FR</a>
+                            <a href="#" class="lang-option" data-lang="de">DE</a>
+                            <a href="#" class="lang-option" data-lang="it">IT</a>
+                            <a href="#" class="lang-option" data-lang="pt">PT</a>
+                            <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                            <a href="#" class="lang-option" data-lang="ar">AR</a>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" id="user-menu-btn">
+                            <span class="user-avatar" id="user-avatar">?</span>
+                            <span class="user-name" id="user-name">Loading...</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="/app/dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+                            <a href="/app/automations.html" data-i18n="nav.automations">Automations</a>
+                            <a href="/app/customers.html" data-i18n="nav.customers">Customers</a>
+                            <div class="divider"></div>
+                            <button class="logout-btn" id="logout-btn" data-i18n="nav.signOut">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div class="container">
+                    <div>
+                        <h1 class="page-title" data-i18n="customers.title">Customers</h1>
+                        <p class="page-subtitle" data-i18n="customers.subtitle">Manage your organization's customer data</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary" id="import-csv-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 3V13M10 3L6 7M10 3L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 13V15C3 16.1046 3.89543 17 5 17H15C16.1046 17 17 16.1046 17 15V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span data-i18n="customers.importCsv">Import CSV</span>
+                        </button>
+                        <button class="btn btn-primary" id="add-customer-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span data-i18n="customers.addCustomer">Add Customer</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="container">
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-customers">0</span>
+                        <span class="stat-label" data-i18n="customers.total">Total Customers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="new-this-month">0</span>
+                        <span class="stat-label" data-i18n="customers.newThisMonth">New This Month</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="with-email">0</span>
+                        <span class="stat-label" data-i18n="customers.withEmail">With Email</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="customers-section">
+                <div class="container">
+                    <!-- Filter Bar -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                                <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <input type="text" id="search-input" placeholder="Search customers..." data-i18n-placeholder="customers.search">
+                        </div>
+                        <div class="filter-actions">
+                            <select id="tag-filter" class="filter-select">
+                                <option value="">All Tags</option>
+                            </select>
+                            <select id="source-filter" class="filter-select">
+                                <option value="">All Sources</option>
+                                <option value="csv_import">CSV Import</option>
+                                <option value="manual">Manual</option>
+                                <option value="api">API</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-container" id="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+
+                    <!-- Customers Table -->
+                    <div class="customers-table-container" id="customers-container" style="display: none;">
+                        <table class="customers-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-checkbox">
+                                    </th>
+                                    <th data-i18n="customers.name">Name</th>
+                                    <th data-i18n="customers.email">Email</th>
+                                    <th data-i18n="customers.company">Company</th>
+                                    <th data-i18n="customers.tags">Tags</th>
+                                    <th data-i18n="customers.source">Source</th>
+                                    <th data-i18n="customers.added">Added</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination" style="display: none;">
+                        <button class="pagination-btn" id="prev-page" disabled>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Previous
+                        </button>
+                        <span class="pagination-info" id="pagination-info">Page 1 of 1</span>
+                        <button class="pagination-btn" id="next-page" disabled>
+                            Next
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <div class="empty-state-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 34C8 27.3726 13.3726 22 20 22C26.6274 22 32 27.3726 32 34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="customers.noCustomers">No customers yet</h3>
+                        <p data-i18n="customers.noCustomersDesc">Import a CSV or add customers manually to get started</p>
+                        <div class="empty-state-actions">
+                            <button class="btn btn-secondary" id="empty-import-btn" data-i18n="customers.importCsv">Import CSV</button>
+                            <button class="btn btn-primary" id="empty-add-btn" data-i18n="customers.addCustomer">Add Customer</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Customer Modal -->
+    <div class="modal-overlay" id="customer-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="customer-modal-title">Add Customer</h2>
+                <button class="modal-close" id="customer-modal-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="customer-form">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-first-name">First Name</label>
+                            <input type="text" id="customer-first-name" name="first_name" placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-last-name">Last Name</label>
+                            <input type="text" id="customer-last-name" name="last_name" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-email">Email</label>
+                        <input type="email" id="customer-email" name="email" placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-phone">Phone</label>
+                        <input type="tel" id="customer-phone" name="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-company">Company</label>
+                        <input type="text" id="customer-company" name="company" placeholder="Acme Inc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-tags">Tags</label>
+                        <div class="tags-input-container">
+                            <div class="tags-list" id="customer-tags-list"></div>
+                            <input type="text" id="customer-tags-input" placeholder="Type and press Enter to add tags">
+                        </div>
+                    </div>
+
+                    <!-- Custom Fields Section -->
+                    <div id="custom-fields-section"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="customer-modal-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="customer-submit-btn">Add Customer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CSV Import Modal -->
+    <div class="modal-overlay" id="csv-import-modal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h2>Import Customers from CSV</h2>
+                <button class="modal-close" id="csv-modal-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Step 1: Upload -->
+            <div class="import-step" id="import-step-upload">
+                <div class="modal-body">
+                    <div class="upload-zone" id="upload-zone">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8V28M24 8L16 16M24 8L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 28V36C8 38.2091 9.79086 40 12 40H36C38.2091 40 40 38.2091 40 36V28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <p class="upload-text">Drag and drop your CSV file here, or</p>
+                        <label class="btn btn-secondary upload-btn">
+                            Browse Files
+                            <input type="file" id="csv-file-input" accept=".csv" hidden>
+                        </label>
+                        <p class="upload-hint">Supports .csv files up to 10MB</p>
+                    </div>
+                    <div class="file-preview" id="file-preview" style="display: none;">
+                        <div class="file-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="file-details">
+                                <span class="file-name" id="file-name">file.csv</span>
+                                <span class="file-meta" id="file-meta">0 rows detected</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-icon" id="remove-file">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="csv-cancel-upload">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="csv-next-mapping" disabled>Continue to Mapping</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Column Mapping -->
+            <div class="import-step" id="import-step-mapping" style="display: none;">
+                <div class="modal-body">
+                    <p class="mapping-description">Map your CSV columns to customer fields. We've auto-detected some fields for you.</p>
+                    <div class="mapping-list" id="mapping-list">
+                        <!-- Mapping rows will be inserted here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="csv-back-upload">Back</button>
+                    <button type="button" class="btn btn-primary" id="csv-next-review">Continue to Review</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Review -->
+            <div class="import-step" id="import-step-review" style="display: none;">
+                <div class="modal-body">
+                    <div class="review-summary">
+                        <h3>Import Summary</h3>
+                        <div class="review-stats">
+                            <div class="review-stat">
+                                <span class="review-stat-value" id="review-total">0</span>
+                                <span class="review-stat-label">Total Rows</span>
+                            </div>
+                            <div class="review-stat">
+                                <span class="review-stat-value" id="review-new">0</span>
+                                <span class="review-stat-label">New Customers</span>
+                            </div>
+                            <div class="review-stat">
+                                <span class="review-stat-value" id="review-update">0</span>
+                                <span class="review-stat-label">To Update</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="update-existing" checked>
+                            <span>Update existing customers by email match</span>
+                        </label>
+                    </div>
+                    <div class="preview-table-container">
+                        <h4>Preview (first 5 rows)</h4>
+                        <table class="preview-table" id="preview-table">
+                            <thead id="preview-thead"></thead>
+                            <tbody id="preview-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="csv-back-mapping">Back</button>
+                    <button type="button" class="btn btn-primary" id="csv-import-btn">Import Customers</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Complete -->
+            <div class="import-step" id="import-step-complete" style="display: none;">
+                <div class="modal-body import-complete">
+                    <div class="complete-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3"/>
+                            <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Import Complete!</h3>
+                    <p id="import-result-message">Successfully imported 0 customers.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="csv-done">View Customers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="../i18n/i18n.js"></script>
+    <script src="auth.js?v=2"></script>
+    <script src="celebrate.js?v=2"></script>
+    <script src="danger-modal.js?v=1"></script>
+    <script src="customers.js?v=2"></script>
+</body>
+</html>

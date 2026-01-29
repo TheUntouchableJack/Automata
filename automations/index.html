@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Templates - Automata</title>
+    <meta name="description" content="Discover ready-to-use automation templates for your business. Birthday rewards, loyalty programs, follow-ups, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../i18n/i18n.css">
+    <style>
+        /* Marketplace-specific styles */
+        .marketplace-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+            text-align: center;
+        }
+
+        .marketplace-hero h1 {
+            margin-bottom: 16px;
+        }
+
+        .marketplace-hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+
+        /* Search & Filters */
+        .filters-section {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--color-border-light);
+            background: var(--color-bg);
+            position: sticky;
+            top: 64px;
+            z-index: 50;
+        }
+
+        .filters-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            font-family: inherit;
+            font-size: 15px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-bg);
+            color: var(--color-text);
+            outline: none;
+            transition: all var(--transition-base);
+        }
+
+        .search-box input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-box input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-pill:hover {
+            border-color: var(--color-text-muted);
+            color: var(--color-text);
+        }
+
+        .filter-pill.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Templates Grid */
+        .templates-section {
+            padding: 48px 0 100px;
+        }
+
+        .templates-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .templates-count {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* Template Card */
+        .template-card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--radius-xl);
+            padding: 28px;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-border);
+        }
+
+        .btn-automate {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(-4px);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+        }
+
+        .template-card:hover .btn-automate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-automate:hover {
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        }
+
+        .template-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: var(--color-primary-subtle);
+            color: var(--color-primary);
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+        }
+
+        .template-card.featured .template-icon {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .template-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-full);
+            margin-bottom: 12px;
+        }
+
+        .template-badge.popular {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+
+        .template-badge.new {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--color-accent);
+        }
+
+        .template-badge.featured {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--color-primary);
+        }
+
+        .template-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .template-description {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .template-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border-light);
+        }
+
+        .template-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        .template-meta-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .template-industry {
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--color-bg-secondary);
+            color: var(--color-text-muted);
+            border-radius: var(--radius-sm);
+            text-transform: capitalize;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--gradient-subtle);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .cta-banner p {
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Empty State */
+        .empty-results {
+            text-align: center;
+            padding: 64px 24px;
+        }
+
+        .empty-results-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--color-text-muted);
+        }
+
+        .empty-results h3 {
+            margin-bottom: 8px;
+        }
+
+        .empty-results p {
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .marketplace-hero {
+                padding: 100px 0 40px;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .filter-pills {
+                justify-content: center;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-banner {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">A</span>
+                <span class="logo-text">Automata</span>
+            </a>
+            <div class="nav-links">
+                <a href="/automations/" class="active">Automations</a>
+                <a href="/#features">Features</a>
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/blog/">Blog</a>
+            </div>
+            <div class="nav-cta">
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-selector-btn" type="button" aria-label="Change language">
+                        <span class="lang-selector-current">EN</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="en">EN</a>
+                        <a href="#" class="lang-option" data-lang="es">ES</a>
+                        <a href="#" class="lang-option" data-lang="fr">FR</a>
+                        <a href="#" class="lang-option" data-lang="de">DE</a>
+                        <a href="#" class="lang-option" data-lang="it">IT</a>
+                        <a href="#" class="lang-option" data-lang="pt">PT</a>
+                        <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                        <a href="#" class="lang-option" data-lang="ar">AR</a>
+                    </div>
+                </div>
+                <a href="/app/login.html" class="btn btn-secondary">Log In</a>
+                <a href="/#cta" class="btn btn-primary">Join Waitlist</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="marketplace-hero">
+        <div class="container">
+            <h1>Automation <span class="gradient-text">Templates</span></h1>
+            <p>Ready-to-use automations for every business. Browse, customize, and launch in minutes.</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="search-box">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search templates...">
+                </div>
+                <div class="filter-pills">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="food">Food & Restaurant</button>
+                    <button class="filter-pill" data-filter="health">Health & Wellness</button>
+                    <button class="filter-pill" data-filter="retail">Retail</button>
+                    <button class="filter-pill" data-filter="service">Services</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates -->
+    <section class="templates-section">
+        <div class="container">
+            <div class="templates-header">
+                <span class="templates-count" id="templates-count">12 templates</span>
+            </div>
+
+            <div class="templates-grid" id="templates-grid">
+                <!-- Birthday Rewards -->
+                <div class="template-card" data-industry="all" data-template="birthday-rewards">
+                    <button class="btn-automate" onclick="startAutomation('birthday-rewards')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge popular">Popular</span>
+                    <h3 class="template-name">Birthday Rewards</h3>
+                    <p class="template-description">Automatically send personalized birthday offers to customers. Boost loyalty and drive repeat visits.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">All Industries</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            2.4k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Loyalty Points -->
+                <div class="template-card" data-industry="retail" data-template="loyalty-program">
+                    <button class="btn-automate" onclick="startAutomation('loyalty-program')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge featured">Featured</span>
+                    <h3 class="template-name">Loyalty Points Program</h3>
+                    <p class="template-description">Reward repeat customers automatically. Track points and send redemption reminders.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Retail</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            1.8k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Happy Hour Alerts -->
+                <div class="template-card" data-industry="food" data-template="happy-hour">
+                    <button class="btn-automate" onclick="startAutomation('happy-hour')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 11.5C21 16.75 12 22 12 22C12 22 3 16.75 3 11.5C3 6.25 7.03 2 12 2C16.97 2 21 6.25 21 11.5Z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge new">New</span>
+                    <h3 class="template-name">Happy Hour Alerts</h3>
+                    <p class="template-description">Notify nearby customers about happy hour specials. Drive foot traffic during slow hours.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Food</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            956 uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Appointment Reminders -->
+                <div class="template-card" data-industry="health" data-template="appointment-reminders">
+                    <button class="btn-automate" onclick="startAutomation('appointment-reminders')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 10H21M8 2V6M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Appointment Reminders</h3>
+                    <p class="template-description">Reduce no-shows with automated reminders. Send via SMS or email 24 hours before.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Health</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            3.1k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Follow-up After Visit -->
+                <div class="template-card" data-industry="service" data-template="post-visit">
+                    <button class="btn-automate" onclick="startAutomation('post-visit')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Post-Visit Follow-up</h3>
+                    <p class="template-description">Thank customers after their visit and ask for feedback. Build relationships that last.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Services</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            1.2k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Re-engagement -->
+                <div class="template-card" data-industry="all" data-template="win-back">
+                    <button class="btn-automate" onclick="startAutomation('win-back')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 8L21 3M21 3V8M21 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge popular">Popular</span>
+                    <h3 class="template-name">Win-Back Campaign</h3>
+                    <p class="template-description">Re-engage customers who haven't visited in 30+ days with personalized offers.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">All Industries</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            2.1k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Weekly Specials -->
+                <div class="template-card" data-industry="food" data-template="weekly-specials">
+                    <button class="btn-automate" onclick="startAutomation('weekly-specials')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 8H16M8 12H16M8 16H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Weekly Specials Newsletter</h3>
+                    <p class="template-description">Share your weekly menu highlights and specials automatically every week.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Food</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            845 uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Review Request -->
+                <div class="template-card" data-industry="all" data-template="review-request">
+                    <button class="btn-automate" onclick="startAutomation('review-request')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Review Request</h3>
+                    <p class="template-description">Ask happy customers for Google or Yelp reviews. Boost your online reputation.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">All Industries</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            1.5k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- New Patient Welcome -->
+                <div class="template-card" data-industry="health" data-template="new-patient">
+                    <button class="btn-automate" onclick="startAutomation('new-patient')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 21V19C6 16.79 8.24 15 11 15H13C15.76 15 18 16.79 18 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge new">New</span>
+                    <h3 class="template-name">New Patient Welcome</h3>
+                    <p class="template-description">Welcome new patients with helpful information about your practice and what to expect.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Health</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            672 uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Seasonal Promotion -->
+                <div class="template-card" data-industry="retail" data-template="seasonal-promotions">
+                    <button class="btn-automate" onclick="startAutomation('seasonal-promotions')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3V5M5.64 5.64L7.05 7.05M3 12H5M5.64 18.36L7.05 16.95M12 19V21M16.95 16.95L18.36 18.36M19 12H21M16.95 7.05L18.36 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Seasonal Promotions</h3>
+                    <p class="template-description">Automatically send holiday and seasonal offers. Never miss a sales opportunity.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Retail</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            1.1k uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Service Quote Follow-up -->
+                <div class="template-card" data-industry="service" data-template="quote-followup">
+                    <button class="btn-automate" onclick="startAutomation('quote-followup')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
+                            <rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 12H15M9 16H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="template-name">Quote Follow-up</h3>
+                    <p class="template-description">Follow up on service quotes automatically. Convert more leads into customers.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">Services</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            789 uses
+                        </span>
+                    </div>
+                </div>
+
+                <!-- VIP Customer Perks -->
+                <div class="template-card featured" data-industry="all" data-template="vip-perks">
+                    <button class="btn-automate" onclick="startAutomation('vip-perks')">Automate</button>
+                    <div class="template-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15C15.866 15 19 11.866 19 8V3H5V8C5 11.866 8.134 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M5 3H19M8 21H16M12 15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="template-badge featured">Featured</span>
+                    <h3 class="template-name">VIP Customer Perks</h3>
+                    <p class="template-description">Reward your top customers with exclusive perks and early access to promotions.</p>
+                    <div class="template-meta">
+                        <span class="template-industry">All Industries</span>
+                        <span class="template-meta-item">
+                            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            1.9k uses
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <h3>Can't find what you need?</h3>
+                <p>Our AI can create custom automations tailored to your specific business needs.</p>
+                <a href="/#cta" class="btn btn-primary btn-large">Join the Waitlist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <span class="logo-icon">A</span>
+                        <span class="logo-text">Automata</span>
+                    </a>
+                    <p>Automations that amplify human connection.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="/automations/">Automations</a>
+                        <a href="/#features">Features</a>
+                        <a href="/#pricing">Pricing</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="/blog/">Blog</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Automata. All rights reserved.</p>
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-selector-btn" type="button" aria-label="Change language">
+                        <span class="lang-selector-current">EN</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="en">EN</a>
+                        <a href="#" class="lang-option" data-lang="es">ES</a>
+                        <a href="#" class="lang-option" data-lang="fr">FR</a>
+                        <a href="#" class="lang-option" data-lang="de">DE</a>
+                        <a href="#" class="lang-option" data-lang="it">IT</a>
+                        <a href="#" class="lang-option" data-lang="pt">PT</a>
+                        <a href="#" class="lang-option" data-lang="zh">ZH</a>
+                        <a href="#" class="lang-option" data-lang="ar">AR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../i18n/i18n.js"></script>
+    <script>
+        // Filter functionality
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const templateCards = document.querySelectorAll('.template-card');
+        const searchInput = document.getElementById('search-input');
+        const templatesCount = document.getElementById('templates-count');
+
+        function updateCount() {
+            const visible = document.querySelectorAll('.template-card:not([style*="display: none"])').length;
+            templatesCount.textContent = `${visible} template${visible !== 1 ? 's' : ''}`;
+        }
+
+        function filterTemplates() {
+            const activeFilter = document.querySelector('.filter-pill.active').dataset.filter;
+            const searchTerm = searchInput.value.toLowerCase();
+
+            templateCards.forEach(card => {
+                const industry = card.dataset.industry;
+                const name = card.querySelector('.template-name').textContent.toLowerCase();
+                const description = card.querySelector('.template-description').textContent.toLowerCase();
+
+                const matchesFilter = activeFilter === 'all' || industry === activeFilter || industry === 'all';
+                const matchesSearch = name.includes(searchTerm) || description.includes(searchTerm);
+
+                card.style.display = matchesFilter && matchesSearch ? 'block' : 'none';
+            });
+
+            updateCount();
+        }
+
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                filterTemplates();
+            });
+        });
+
+        searchInput.addEventListener('input', filterTemplates);
+
+        // Template card click - will link to detail page in future
+        templateCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking the Automate button
+                if (e.target.classList.contains('btn-automate')) return;
+                // For now, scroll to CTA
+                document.querySelector('.cta-banner').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Start Automation Flow
+        function startAutomation(templateId) {
+            // Store the selected template
+            localStorage.setItem('automata_selected_template', templateId);
+            // Redirect to signup/login with template context
+            window.location.href = '/app/login.html?template=' + templateId;
+        }
+    </script>
+</body>
+</html>
