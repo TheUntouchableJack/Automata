@@ -937,12 +937,113 @@ blockquote {
     padding: 120px 0;
 }
 
+/* Billing Toggle */
+.billing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.toggle-label.active {
+    color: var(--color-text);
+}
+
+.toggle-switch {
+    position: relative;
+    width: 52px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-border);
+    transition: var(--transition-fast);
+    border-radius: var(--radius-full);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition-fast);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background-color: var(--color-primary);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+.save-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-accent);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    margin-left: 6px;
+}
+
 .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1000px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.pricing-addons-note {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-addons-note p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.pricing-addons-note a {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.pricing-addons-note a:hover {
+    text-decoration: underline;
 }
 
 .pricing-card {
@@ -1253,8 +1354,20 @@ blockquote {
     }
 
     .pricing-cards {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 900px) {
+    .pricing-cards {
         grid-template-columns: 1fr;
-        max-width: 380px;
+        max-width: 400px;
+    }
+
+    .billing-toggle {
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
 

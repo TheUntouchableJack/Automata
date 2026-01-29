@@ -23,7 +23,7 @@
                 <a href="/automations/" data-i18n="nav.automations">Automations</a>
                 <a href="#features" data-i18n="nav.features">Features</a>
                 <a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                 <a href="/blog/" data-i18n="nav.blog">Blog</a>
             </div>
             <div class="nav-cta">
@@ -471,130 +471,193 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-i18n="pricing.tag">Pricing</span>
-                <h2 data-i18n="pricing.title">Simple, transparent pricing</h2>
-                <p data-i18n="pricing.subtitle">Pay for what you use. No hidden fees.</p>
+                <span class="section-tag">Pricing</span>
+                <h2>Start free. Scale as you grow.</h2>
+                <p>No credit card required. Upgrade or downgrade anytime.</p>
             </div>
+
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span class="toggle-label" data-period="monthly">Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label" data-period="annual">Annual <span class="save-badge">Save 20%</span></span>
+            </div>
+
             <div class="pricing-cards">
+                <!-- Starter - Free -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 data-i18n="pricing.free.name">Free Trial</h3>
-                        <p data-i18n="pricing.free.desc">Get started and see the power of automation</p>
+                        <h3>Starter</h3>
+                        <p>Perfect for trying Automata</p>
                     </div>
                     <div class="pricing-price">
                         <span class="price">$0</span>
-                        <span class="period" data-i18n="pricing.free.period">for 14 days</span>
+                        <span class="period">forever free</span>
                     </div>
                     <ul class="pricing-features">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.free.feature1">Up to 100 customers</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>1 project</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.free.feature2">2 active automations</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>3 automations</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.free.feature3">100 messages included</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>100 customers</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.free.feature4">Email support</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>500 emails/month</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>10 AI analyses</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Community support</span>
                         </li>
                     </ul>
-                    <a href="#cta" class="btn btn-secondary btn-block" data-i18n="pricing.free.cta">Join Waitlist</a>
+                    <a href="/app/signup.html" class="btn btn-secondary btn-block">Get Started Free</a>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge" data-i18n="pricing.growth.badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3 data-i18n="pricing.growth.name">Growth</h3>
-                        <p data-i18n="pricing.growth.desc">For businesses ready to scale relationships</p>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="price">$75</span>
-                        <span class="period" data-i18n="pricing.growth.period">per automation</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.growth.feature1">Unlimited customers</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.growth.feature2">Unlimited automations</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.growth.feature3">Email + SMS channels</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.growth.feature4">AI-powered suggestions</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.growth.feature5">Priority support</span>
-                        </li>
-                    </ul>
-                    <a href="#cta" class="btn btn-primary btn-block" data-i18n="pricing.growth.cta">Get Started</a>
-                    <p class="pricing-note" data-i18n="pricing.growth.note">+ $29/mo hosting · Usage-based messaging</p>
-                </div>
+
+                <!-- Growth -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 data-i18n="pricing.enterprise.name">Enterprise</h3>
-                        <p data-i18n="pricing.enterprise.desc">For large teams with custom needs</p>
+                        <h3>Growth</h3>
+                        <p>For small businesses scaling up</p>
                     </div>
                     <div class="pricing-price">
-                        <span class="price" data-i18n="pricing.enterprise.price">Custom</span>
-                        <span class="period" data-i18n="pricing.enterprise.period">tailored to you</span>
+                        <span class="price" data-monthly="39" data-annual="31">$39</span>
+                        <span class="period">/month</span>
                     </div>
                     <ul class="pricing-features">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.enterprise.feature1">Everything in Growth</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>5 projects</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.enterprise.feature2">Custom integrations</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>15 automations</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.enterprise.feature3">Dedicated support</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>2,000 customers</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span data-i18n="pricing.enterprise.feature4">SLA guarantee</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>5,000 emails/month</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>50 AI analyses</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Email support</span>
                         </li>
                     </ul>
-                    <a href="#cta" class="btn btn-secondary btn-block" data-i18n="pricing.enterprise.cta">Contact Sales</a>
+                    <a href="/app/signup.html" class="btn btn-secondary btn-block">Start 14-Day Trial</a>
+                    <p class="pricing-note">No credit card required</p>
                 </div>
+
+                <!-- Business - Most Popular -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Business</h3>
+                        <p>For growing teams with more needs</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price" data-monthly="99" data-annual="79">$99</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>15 projects</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>50 automations</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>10,000 customers</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>25,000 emails/month</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>200 AI analyses</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>API access</span>
+                        </li>
+                    </ul>
+                    <a href="/app/signup.html" class="btn btn-primary btn-block">Start 14-Day Trial</a>
+                    <p class="pricing-note">No credit card required</p>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p>For large organizations</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price" data-monthly="249" data-annual="199">$249</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Unlimited projects</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Unlimited automations</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>50,000 customers</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>100,000 emails/month</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>1,000 SMS included</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Unlimited AI analyses</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Dedicated support + SLA</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary btn-block">Contact Sales</a>
+                </div>
+            </div>
+
+            <!-- Add-ons Note -->
+            <div class="pricing-addons-note">
+                <p><strong>Need more?</strong> Add SMS messaging, extra customers, or more emails anytime. <a href="/pricing.html">See full pricing details</a></p>
             </div>
         </div>
     </section>
@@ -637,7 +700,7 @@
                         <h4 data-i18n="footer.product">Product</h4>
                         <a href="/automations/" data-i18n="nav.automations">Automations</a>
                         <a href="#features" data-i18n="nav.features">Features</a>
-                        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                        <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                     </div>
                     <div class="footer-column">
                         <h4 data-i18n="footer.company">Company</h4>

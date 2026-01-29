@@ -292,3 +292,33 @@ function animateStats() {
         }, 30);
     });
 }
+
+// ===== Billing Toggle =====
+const billingToggle = document.getElementById('billing-toggle');
+if (billingToggle) {
+    const monthlyLabel = document.querySelector('.toggle-label[data-period="monthly"]');
+    const annualLabel = document.querySelector('.toggle-label[data-period="annual"]');
+    const priceElements = document.querySelectorAll('.pricing-price .price[data-monthly]');
+
+    // Set initial state
+    updatePricing(false);
+
+    billingToggle.addEventListener('change', () => {
+        updatePricing(billingToggle.checked);
+    });
+
+    function updatePricing(isAnnual) {
+        // Update labels
+        if (monthlyLabel) monthlyLabel.classList.toggle('active', !isAnnual);
+        if (annualLabel) annualLabel.classList.toggle('active', isAnnual);
+
+        // Update prices
+        priceElements.forEach(el => {
+            const monthly = el.dataset.monthly;
+            const annual = el.dataset.annual;
+            if (monthly && annual) {
+                el.textContent = '$' + (isAnnual ? annual : monthly);
+            }
+        });
+    }
+}
