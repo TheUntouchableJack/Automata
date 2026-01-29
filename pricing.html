@@ -10,9 +10,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=5">
     <style>
+        /* Announcement Banner */
+        .announcement-banner {
+            background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+            color: #000;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .announcement-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .announcement-banner a {
+            background: #000;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .announcement-banner a:hover {
+            background: #333;
+        }
+
+        /* Adjust navbar position when banner is present */
+        .navbar {
+            top: 0;
+        }
+
         /* Pricing Page Specific Styles */
         .pricing-hero {
-            padding: 140px 0 80px;
+            padding: 160px 0 80px;
             text-align: center;
             background: var(--color-bg);
         }
@@ -214,6 +252,203 @@
             color: var(--color-accent);
         }
 
+        /* AppSumo Section */
+        .appsumo-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 80px 0;
+        }
+
+        .appsumo-banner {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .appsumo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .appsumo-logo {
+            height: 32px;
+            filter: brightness(0) invert(1);
+        }
+
+        .limited-badge {
+            background: #f59e0b;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .appsumo-banner h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .appsumo-banner p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .appsumo-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .appsumo-tier {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .appsumo-tier.featured {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #f59e0b;
+            transform: scale(1.05);
+        }
+
+        .tier-popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f59e0b;
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tier-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .tier-codes {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tier-price {
+            margin-bottom: 24px;
+        }
+
+        .price-strike {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .price-main {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .price-type {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-left: 4px;
+        }
+
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .tier-features li {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .appsumo-tier .btn-block {
+            width: 100%;
+        }
+
+        .appsumo-tier .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .appsumo-tier .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .appsumo-tier.featured .btn-primary {
+            background: #f59e0b;
+            color: #000;
+        }
+
+        .appsumo-tier.featured .btn-primary:hover {
+            background: #d97706;
+        }
+
+        .appsumo-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .appsumo-guarantee svg {
+            color: #10b981;
+        }
+
+        @media (max-width: 900px) {
+            .appsumo-tiers {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .appsumo-tier.featured {
+                transform: none;
+                order: -1;
+            }
+
+            .appsumo-banner h2 {
+                font-size: 1.75rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .pricing-hero h1 {
                 font-size: 2rem;
@@ -230,6 +465,14 @@
     </style>
 </head>
 <body>
+    <!-- AppSumo Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <span>Limited Time: Get <strong>lifetime access</strong> on AppSumo</span>
+            <a href="#appsumo">View Deal</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -653,6 +896,103 @@
                     <h4>Do you offer discounts for nonprofits?</h4>
                     <p>Yes, we offer 50% off for registered nonprofits and educational institutions. Contact us with proof of nonprofit status to receive your discount.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AppSumo Lifetime Deal Section -->
+    <section class="pricing-section appsumo-section" id="appsumo">
+        <div class="container">
+            <div class="appsumo-banner">
+                <div class="appsumo-badge">
+                    <img src="https://appsumo2-cdn.appsumo.com/static/images/as-logo-dark.svg" alt="AppSumo" class="appsumo-logo">
+                    <span class="limited-badge">Limited Time</span>
+                </div>
+                <h2>Lifetime Deal on AppSumo</h2>
+                <p>Get lifetime access to Automata at a one-time price. No monthly fees, ever. Stack codes to unlock more features.</p>
+            </div>
+
+            <div class="appsumo-tiers">
+                <!-- Tier 1 -->
+                <div class="appsumo-tier">
+                    <div class="tier-header">
+                        <span class="tier-label">Tier 1</span>
+                        <span class="tier-codes">1 Code</span>
+                    </div>
+                    <div class="tier-price">
+                        <span class="price-strike">$468/yr</span>
+                        <span class="price-main">$59</span>
+                        <span class="price-type">one-time</span>
+                    </div>
+                    <ul class="tier-features">
+                        <li>3 projects</li>
+                        <li>10 automations</li>
+                        <li>1,000 customers</li>
+                        <li>3,000 emails/month</li>
+                        <li>30 AI analyses/month</li>
+                        <li>Email support</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="https://appsumo.com/products/automata/" class="btn btn-secondary btn-block" target="_blank">Get This Deal</a>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="appsumo-tier featured">
+                    <div class="tier-popular">Most Popular</div>
+                    <div class="tier-header">
+                        <span class="tier-label">Tier 2</span>
+                        <span class="tier-codes">2 Codes</span>
+                    </div>
+                    <div class="tier-price">
+                        <span class="price-strike">$1,188/yr</span>
+                        <span class="price-main">$119</span>
+                        <span class="price-type">one-time</span>
+                    </div>
+                    <ul class="tier-features">
+                        <li>10 projects</li>
+                        <li>30 automations</li>
+                        <li>5,000 customers</li>
+                        <li>15,000 emails/month</li>
+                        <li>100 AI analyses/month</li>
+                        <li>Priority support</li>
+                        <li>API access</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="https://appsumo.com/products/automata/" class="btn btn-primary btn-block" target="_blank">Get This Deal</a>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="appsumo-tier">
+                    <div class="tier-header">
+                        <span class="tier-label">Tier 3</span>
+                        <span class="tier-codes">3 Codes</span>
+                    </div>
+                    <div class="tier-price">
+                        <span class="price-strike">$2,988/yr</span>
+                        <span class="price-main">$199</span>
+                        <span class="price-type">one-time</span>
+                    </div>
+                    <ul class="tier-features">
+                        <li>25 projects</li>
+                        <li>Unlimited automations</li>
+                        <li>15,000 customers</li>
+                        <li>50,000 emails/month</li>
+                        <li>300 AI analyses/month</li>
+                        <li>Priority support + SLA</li>
+                        <li>API + Webhooks</li>
+                        <li>White-label option</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="https://appsumo.com/products/automata/" class="btn btn-secondary btn-block" target="_blank">Get This Deal</a>
+                </div>
+            </div>
+
+            <div class="appsumo-guarantee">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>60-day money-back guarantee via AppSumo</span>
             </div>
         </div>
     </section>
