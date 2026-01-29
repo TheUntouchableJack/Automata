@@ -299,6 +299,7 @@
     padding: 24px;
     margin-bottom: 24px;
     text-align: left;
+    overflow: hidden;
 }
 
 .overview-section h3 {
