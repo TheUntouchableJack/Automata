@@ -206,6 +206,15 @@
                 transform: translateY(0);
             }
         }
+
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--color-border);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -274,6 +283,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../i18n/i18n.js"></script>
+    <script src="onboarding-storage.js"></script>
     <script src="auth.js?v=2"></script>
     <script src="celebrate.js?v=2"></script>
     <script>
@@ -304,6 +314,9 @@
                     throw error;
                 }
 
+                // Check for pending onboarding data and save it
+                const newProjectId = await saveOnboardingDataAfterLogin(user.id);
+
                 // Success! Hide form and show celebration
                 loginForm.style.display = 'none';
                 successMessage.classList.add('visible');
@@ -316,9 +329,14 @@
                 // Fire confetti!
                 celebrate();
 
-                // Redirect after celebration
+                // Redirect after celebration - to new project if onboarding, else dashboard
                 setTimeout(() => {
-                    window.location.href = '/app/dashboard.html';
+                    if (newProjectId) {
+                        // Redirect to the new project with onboarding flag
+                        window.location.href = `/app/project.html?id=${newProjectId}&onboarding=complete`;
+                    } else {
+                        window.location.href = '/app/dashboard.html';
+                    }
                 }, 1000);
 
             } catch (error) {
@@ -344,10 +362,214 @@
             }
         });
 
-        // Check if already logged in (after form handler is set up)
-        redirectIfAuthenticated().catch(err => {
+        // Handle auth state - including email confirmation redirects
+        async function handleAuthOnLoad() {
+            // Check if URL has auth tokens (from email confirmation)
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            const hasAuthTokens = hashParams.has('access_token') || hashParams.has('refresh_token');
+
+            if (hasAuthTokens) {
+                // Show loading state while processing tokens
+                loginForm.style.display = 'none';
+                successMessage.innerHTML = `
+                    <div style="text-align: center;">
+                        <div class="loading-spinner" style="margin: 0 auto 16px;"></div>
+                        <p>Confirming your email...</p>
+                    </div>
+                `;
+                successMessage.classList.add('visible');
+            }
+
+            // Wait a moment for Supabase to process any URL tokens
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Check for authenticated user
+            const user = await getCurrentUser();
+
+            if (user) {
+                // User is authenticated!
+                if (hasAuthTokens) {
+                    // Coming from email confirmation - process onboarding
+                    successMessage.innerHTML = `
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
+                            <h3 style="color: var(--color-accent); margin-bottom: 8px;">Email confirmed!</h3>
+                            <p>Setting up your account...</p>
+                        </div>
+                    `;
+
+                    // Save onboarding data and get project ID
+                    const newProjectId = await saveOnboardingDataAfterLogin(user.id);
+
+                    // Celebrate!
+                    celebrate();
+
+                    // Update message
+                    successMessage.innerHTML = `
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+                            <h3 style="color: var(--color-accent); margin-bottom: 8px;">Welcome to Automata!</h3>
+                            <p>${newProjectId ? 'Taking you to your new project...' : 'Redirecting to your dashboard...'}</p>
+                        </div>
+                    `;
+
+                    // Clean URL and redirect
+                    window.history.replaceState({}, '', window.location.pathname);
+
+                    setTimeout(() => {
+                        if (newProjectId) {
+                            window.location.href = `/app/project.html?id=${newProjectId}&onboarding=complete`;
+                        } else {
+                            window.location.href = '/app/dashboard.html';
+                        }
+                    }, 1000);
+                } else {
+                    // Already logged in (not from email confirmation)
+                    window.location.href = '/app/dashboard.html';
+                }
+            } else if (hasAuthTokens) {
+                // Had tokens but no user - something went wrong
+                loginForm.style.display = 'block';
+                successMessage.classList.remove('visible');
+                errorMessage.textContent = 'Email confirmation failed. Please try signing in.';
+                errorMessage.classList.add('visible');
+                window.history.replaceState({}, '', window.location.pathname);
+            }
+            // If no user and no tokens, just show the login form (already visible)
+        }
+
+        handleAuthOnLoad().catch(err => {
             console.error('Auth check error:', err);
         });
+
+        // Template names for creating automations
+        const templateNames = {
+            'birthday-rewards': 'Birthday Rewards',
+            'loyalty-program': 'Loyalty Points Program',
+            'happy-hour': 'Happy Hour Alerts',
+            'appointment-reminders': 'Appointment Reminders',
+            'post-visit': 'Post-Visit Follow-up',
+            'win-back': 'Win-Back Campaign',
+            'referral-program': 'Referral Program',
+            'review-request': 'Review Request',
+            'new-product': 'New Product Announcements',
+            'welcome-series': 'Welcome Series',
+            'seasonal-promo': 'Seasonal Promotions',
+            'vip-program': 'VIP Program'
+        };
+
+        // Save onboarding data to database after login (if any exists)
+        async function saveOnboardingDataAfterLogin(userId) {
+            if (typeof OnboardingStorage === 'undefined') return null;
+
+            const onboardingData = OnboardingStorage.get();
+            if (!onboardingData || (!onboardingData.selectedTemplates?.length && !onboardingData.customAutomation?.trim())) {
+                return null;
+            }
+
+            try {
+                // Get user's organization
+                const { data: membership, error: membershipError } = await db
+                    .from('organization_members')
+                    .select('organization_id')
+                    .eq('user_id', userId)
+                    .single();
+
+                if (membershipError || !membership) {
+                    console.error('Error finding organization:', membershipError);
+                    return null;
+                }
+
+                const organizationId = membership.organization_id;
+
+                // Check if user already has projects (don't create duplicate)
+                const { data: existingProjects } = await db
+                    .from('projects')
+                    .select('id')
+                    .eq('organization_id', organizationId)
+                    .limit(1);
+
+                if (existingProjects?.length > 0) {
+                    // User already has projects, clear onboarding data
+                    OnboardingStorage.clear();
+                    return null;
+                }
+
+                // Create a default project with onboarding data
+                const projectName = onboardingData.businessContext?.industry
+                    ? `My ${onboardingData.businessContext.industry} Project`
+                    : 'My First Project';
+
+                const { data: project, error: projectError } = await db
+                    .from('projects')
+                    .insert({
+                        organization_id: organizationId,
+                        created_by: userId,
+                        name: projectName,
+                        description: onboardingData.businessPrompt || '',
+                        industry: onboardingData.businessContext?.industry || null,
+                        goals: onboardingData.businessContext?.goals || [],
+                        pain_points: onboardingData.businessContext?.painPoints || [],
+                        target_market: onboardingData.businessContext?.targetMarket || null,
+                        location: onboardingData.businessContext?.location || null
+                    })
+                    .select()
+                    .single();
+
+                if (projectError) {
+                    console.error('Error creating project:', projectError);
+                    return null;
+                }
+
+                // Create automations from selected templates
+                if (onboardingData.selectedTemplates?.length > 0) {
+                    const automations = onboardingData.selectedTemplates.map(templateId => ({
+                        project_id: project.id,
+                        name: templateNames[templateId] || templateId,
+                        description: `Template: ${templateId}`,
+                        type: 'email',
+                        frequency: 'manual',
+                        is_active: false,
+                        settings: { template_id: templateId }
+                    }));
+
+                    const { error: automationError } = await db
+                        .from('automations')
+                        .insert(automations);
+
+                    if (automationError) {
+                        console.error('Error creating automations:', automationError);
+                    }
+                }
+
+                // Create custom automation if provided
+                if (onboardingData.customAutomation?.trim()) {
+                    const { error: customError } = await db
+                        .from('automations')
+                        .insert({
+                            project_id: project.id,
+                            name: 'Custom Automation',
+                            description: onboardingData.customAutomation,
+                            type: 'custom',
+                            frequency: 'manual',
+                            is_active: false
+                        });
+
+                    if (customError) {
+                        console.error('Error creating custom automation:', customError);
+                    }
+                }
+
+                // Clear onboarding data after successful save
+                OnboardingStorage.clear();
+
+                console.log('Onboarding data saved to project:', project.id);
+                return project.id;
+            } catch (err) {
+                console.error('Error saving onboarding data:', err);
+                return null;
+            }
+        }
     </script>
 </body>
 </html>

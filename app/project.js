@@ -16,8 +16,8 @@ async function initProject() {
 
     // Get project ID from URL hash (fallback to query param for compatibility)
     let projectId = window.location.hash.slice(1);
+    const urlParams = new URLSearchParams(window.location.search);
     if (!projectId) {
-        const urlParams = new URLSearchParams(window.location.search);
         projectId = urlParams.get('id');
     }
 
@@ -25,6 +25,9 @@ async function initProject() {
         window.location.href = '/app/dashboard.html';
         return;
     }
+
+    // Check if coming from onboarding
+    const isOnboardingComplete = urlParams.get('onboarding') === 'complete';
 
     // Load user info
     await loadUserInfo();
@@ -34,6 +37,188 @@ async function initProject() {
 
     // Setup event listeners
     setupEventListeners();
+
+    // Handle onboarding completion
+    if (isOnboardingComplete) {
+        handleOnboardingComplete();
+        // Clean up URL parameter
+        const cleanUrl = window.location.pathname + '?id=' + projectId;
+        window.history.replaceState({}, '', cleanUrl);
+    } else {
+        // Show coaching tour for new projects (check if recently created)
+        showProjectCoachingIfNeeded();
+    }
+}
+
+// ===== Onboarding Completion =====
+function handleOnboardingComplete() {
+    // Celebrate arrival!
+    if (typeof celebrateBig === 'function') {
+        celebrateBig();
+    } else if (typeof celebrate === 'function') {
+        celebrate();
+    }
+
+    // Show welcome banner
+    showOnboardingWelcomeBanner();
+
+    // Show coaching tour after a short delay
+    setTimeout(() => {
+        if (typeof Coaching !== 'undefined') {
+            Coaching.showTour('project');
+        }
+    }, 1500);
+}
+
+function showOnboardingWelcomeBanner() {
+    // Create and insert welcome banner at the top of the page
+    const banner = document.createElement('div');
+    banner.className = 'onboarding-welcome-banner';
+    banner.id = 'onboarding-welcome-banner';
+    banner.innerHTML = `
+        <div class="welcome-banner-content">
+            <div class="welcome-banner-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                    <path d="M10 16L14 20L22 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="welcome-banner-text">
+                <h3>Welcome to your new project!</h3>
+                <p>Your automations are ready to be configured. Complete your project details below, then activate your automations to get started.</p>
+            </div>
+            <button class="welcome-banner-dismiss" onclick="dismissOnboardingBanner()" title="Dismiss">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    `;
+
+    // Add styles for the banner
+    const style = document.createElement('style');
+    style.textContent = `
+        .onboarding-welcome-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            animation: welcomeBannerSlideIn 0.5s ease;
+        }
+
+        @keyframes welcomeBannerSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-banner-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .welcome-banner-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--radius-full);
+        }
+
+        .welcome-banner-text {
+            flex: 1;
+        }
+
+        .welcome-banner-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--color-text);
+        }
+
+        .welcome-banner-text p {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        .welcome-banner-dismiss {
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--color-text-muted);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .welcome-banner-dismiss:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--color-text);
+        }
+
+        .onboarding-welcome-banner.dismissing {
+            animation: welcomeBannerSlideOut 0.3s ease forwards;
+        }
+
+        @keyframes welcomeBannerSlideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Insert banner at the start of the overview tab content
+    const overviewTab = document.getElementById('overview-tab');
+    if (overviewTab) {
+        overviewTab.insertBefore(banner, overviewTab.firstChild);
+    }
+}
+
+function dismissOnboardingBanner() {
+    const banner = document.getElementById('onboarding-welcome-banner');
+    if (banner) {
+        banner.classList.add('dismissing');
+        setTimeout(() => banner.remove(), 300);
+    }
+}
+
+window.dismissOnboardingBanner = dismissOnboardingBanner;
+
+// ===== Coaching Tour =====
+function showProjectCoachingIfNeeded() {
+    if (typeof Coaching === 'undefined') return;
+    if (!currentProject) return;
+
+    // Check if this is a newly created project (within last 5 minutes)
+    const createdAt = new Date(currentProject.created_at);
+    const now = new Date();
+    const fiveMinutesAgo = new Date(now.getTime() - 5 * 60 * 1000);
+
+    if (createdAt > fiveMinutesAgo) {
+        // Slight delay to ensure UI is ready
+        setTimeout(() => {
+            Coaching.showTour('project');
+        }, 500);
+    }
 }
 
 // ===== Load User Info =====

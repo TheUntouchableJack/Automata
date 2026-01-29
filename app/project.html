@@ -9,9 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="project.css?v=5">
+    <link rel="stylesheet" href="project.css?v=7">
     <link rel="stylesheet" href="../i18n/i18n.css">
     <link rel="stylesheet" href="danger-modal.css">
+    <link rel="stylesheet" href="coaching.css">
 </head>
 <body>
     <div class="dashboard-layout">
@@ -188,15 +189,13 @@
                             <div class="overview-left" id="overview-left">
                                 <!-- Project Details Section -->
                                 <div class="overview-section">
-                                    <div class="section-header">
-                                        <h3>Project Details</h3>
-                                        <button type="button" class="btn btn-secondary btn-sm" id="edit-details-btn">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            Edit
-                                        </button>
-                                    </div>
+                                    <h3 class="section-title">Project Details</h3>
+                                    <button type="button" class="btn btn-secondary btn-sm section-edit-btn" id="edit-details-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Edit
+                                    </button>
 
                                     <div class="section-content">
                                     <!-- View Mode -->
@@ -271,15 +270,13 @@
 
                                 <!-- Business Context Section -->
                                 <div class="overview-section">
-                                    <div class="section-header">
-                                        <h3>Business Context</h3>
-                                        <button type="button" class="btn btn-secondary btn-sm" id="edit-context-btn">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            Edit
-                                        </button>
-                                    </div>
+                                    <h3 class="section-title">Business Context</h3>
+                                    <button type="button" class="btn btn-secondary btn-sm section-edit-btn" id="edit-context-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M11.5 2.5L13.5 4.5L5 13H3V11L11.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Edit
+                                    </button>
 
                                     <div class="section-content">
                                     <!-- View Mode -->
@@ -342,16 +339,14 @@
                             <!-- Right Column: Opportunities (shown after analysis) -->
                             <div class="overview-right" id="overview-right" style="display: none;">
                                 <div class="overview-section">
-                                    <div class="section-header">
-                                        <h3>AI Opportunities</h3>
-                                        <button class="btn btn-secondary btn-sm" id="refresh-opportunities-btn">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                                <path d="M8 2V5H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            Refresh
-                                        </button>
-                                    </div>
+                                    <h3 class="section-title">AI Opportunities</h3>
+                                    <button class="btn btn-secondary btn-sm section-edit-btn" id="refresh-opportunities-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M8 2V5H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Refresh
+                                    </button>
 
                                     <div class="opportunities-cards" id="opportunities-list">
                                         <!-- Opportunity cards will be inserted here -->
@@ -589,6 +584,7 @@
     <script src="icon-library.js?v=1"></script>
     <script src="templates-library.js?v=1"></script>
     <script src="opportunities.js?v=1"></script>
-    <script src="project.js?v=8"></script>
+    <script src="coaching.js"></script>
+    <script src="project.js?v=10"></script>
 </body>
 </html>
