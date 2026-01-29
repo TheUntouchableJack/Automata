@@ -14,9 +14,10 @@
     },
     "hero": {
         "badge": "In Beta — Iscriviti alla lista d'attesa",
-        "titleLine1": "Una persona.",
-        "titleLine2": "Milioni di relazioni.",
-        "subtitle": "Carica i dati dei tuoi clienti. Lascia che l'IA proponga automazioni personalizzate. Costruisci connessioni significative su larga scala — senza perdere il tocco umano.",
+        "titleLine1": "Un {word}.",
+        "titleLine2": "Migliaia di Relazioni.",
+        "rotatingWords": ["Persona", "Fondatore", "Imprenditore", "Titolare", "Creatore", "Madre", "Donna"],
+        "subtitle": "Ogni compleanno ricordato. Ogni visita seguita. Ogni cliente fedele ringraziato — automaticamente.",
         "joinWaitlist": "Iscriviti alla Lista",
         "seeHowItWorks": "Scopri Come Funziona",
         "stats": {
@@ -161,41 +162,41 @@
     },
     "pricing": {
         "tag": "Prezzi",
-        "title": "Prezzi Semplici e Trasparenti",
-        "subtitle": "Paga per quello che usi. Nessun costo nascosto.",
-        "free": {
-            "name": "Prova Gratuita",
-            "desc": "Inizia e scopri la potenza dell'automazione",
-            "period": "per 14 giorni",
-            "feature1": "Fino a 100 clienti",
-            "feature2": "2 automazioni attive",
-            "feature3": "100 messaggi inclusi",
-            "feature4": "Supporto email",
-            "cta": "Iscriviti alla Lista"
+        "title": "Prezzi semplici. Nessuna sorpresa.",
+        "subtitle": "Inizia gratis, aggiorna quando sei pronto. Nessuna carta di credito richiesta.",
+        "popular": "Più Popolare",
+        "perMonth": "/mese",
+        "noCreditCard": "Nessuna carta di credito richiesta",
+        "annualNote": "Risparmia il 20% con la fatturazione annuale. <a href=\"/pricing.html\">Vedi dettagli</a>",
+        "starter": {
+            "name": "Starter",
+            "desc": "Provalo",
+            "period": "gratis per sempre",
+            "f1": "Fino a 100 clienti",
+            "f2": "3 automazioni",
+            "f3": "Supporto community",
+            "cta": "Inizia Gratis"
         },
-        "growth": {
-            "badge": "Più Popolare",
-            "name": "Crescita",
-            "desc": "Per aziende pronte a scalare le relazioni",
-            "period": "per automazione",
-            "feature1": "Clienti illimitati",
-            "feature2": "Automazioni illimitate",
-            "feature3": "Canali Email + SMS",
-            "feature4": "Suggerimenti IA",
-            "feature5": "Supporto prioritario",
-            "cta": "Inizia",
-            "note": "+ 29€/mese hosting · Messaggi a consumo"
+        "pro": {
+            "name": "Pro",
+            "desc": "Per aziende in crescita",
+            "f1": "Fino a 5.000 clienti",
+            "f2": "Automazioni illimitate",
+            "f3": "Supporto prioritario",
+            "cta": "Prova Gratuita"
+        },
+        "scale": {
+            "name": "Scale",
+            "desc": "Per team più grandi",
+            "f1": "Fino a 25.000 clienti",
+            "f2": "Tutto illimitato",
+            "f3": "Supporto dedicato",
+            "cta": "Prova Gratuita"
         },
         "enterprise": {
-            "name": "Enterprise",
-            "desc": "Per grandi team con esigenze personalizzate",
-            "price": "Personalizzato",
-            "period": "su misura per te",
-            "feature1": "Tutto in Crescita",
-            "feature2": "Integrazioni personalizzate",
-            "feature3": "Supporto dedicato",
-            "feature4": "Garanzia SLA",
-            "cta": "Contatta le Vendite"
+            "title": "Hai bisogno di più potenza?",
+            "desc": "Per organizzazioni con oltre 25.000 clienti, integrazioni personalizzate o requisiti di conformità.",
+            "cta": "Scopri Enterprise"
         }
     },
     "cta": {
@@ -330,5 +331,82 @@
         "previous": "Precedente",
         "page": "Pagina",
         "of": "di"
+    },
+    "onboarding": {
+        "title": "Parlaci della tua attività",
+        "subtitle": "Ti mostreremo esattamente come far tornare ogni cliente.",
+        "placeholder": "es., Gestisco un bar a Roma. Vogliamo che i clienti tornino...",
+        "moreDetails": "Aggiungi dettagli per suggerimenti migliori",
+        "getRecommendations": "Ottieni Raccomandazioni",
+        "recommendationsTitle": "Raccomandato per Te",
+        "selectedCount": "di 3 selezionati",
+        "continueToSignup": "Crea Account e Attiva",
+        "freeTierNote": "Piano gratuito: 3 automazioni, 100 clienti, 500 messaggi/mese",
+        "customBadge": "Crea la Tua",
+        "customTitle": "Hai bisogno di qualcosa di diverso?",
+        "customDesc": "Descrivi l'automazione di cui hai bisogno e la creeremo per te.",
+        "customPlaceholder": "es., Inviare un promemoria 6 settimane dopo un appuntamento per tatuaggio per ritocchi...",
+        "signupSummary": "Le tue automazioni sono pronte",
+        "industry": "Settore",
+        "goals": "Obiettivi",
+        "painPoints": "Sfide",
+        "selectIndustry": "Seleziona il tuo settore",
+        "industries": {
+            "food": "Ristorazione",
+            "retail": "Retail ed E-commerce",
+            "health": "Salute e Benessere",
+            "service": "Servizi Professionali",
+            "technology": "Tecnologia",
+            "education": "Istruzione",
+            "other": "Altro"
+        }
+    },
+    "coaching": {
+        "skip": "Salta Tour",
+        "next": "Avanti",
+        "done": "Capito!",
+        "stepOf": "Passo {current} di {total}",
+        "dashboard": {
+            "newProject": {
+                "title": "Crea il Tuo Primo Progetto",
+                "description": "I progetti organizzano le tue automazioni e clienti. Inizia qui!"
+            },
+            "automationsNav": {
+                "title": "Libreria Automazioni",
+                "description": "Visualizza e gestisci tutte le tue automazioni tra i progetti"
+            },
+            "customersNav": {
+                "title": "Database Clienti",
+                "description": "Importa e gestisci la tua lista clienti qui"
+            }
+        },
+        "project": {
+            "newAutomation": {
+                "title": "Crea Automazioni",
+                "description": "Aggiungi campagne email, workflow e altro a questo progetto"
+            },
+            "aiSuggestions": {
+                "title": "Suggerimenti IA",
+                "description": "Lascia che l'IA analizzi la tua attività e suggerisca automazioni"
+            },
+            "customers": {
+                "title": "Aggiungi Clienti",
+                "description": "Assegna clienti a questo progetto per automazioni mirate"
+            }
+        },
+        "automation": {
+            "name": {
+                "title": "Nomina la Tua Automazione",
+                "description": "Dalle un nome chiaro e descrittivo"
+            },
+            "frequency": {
+                "title": "Imposta Frequenza",
+                "description": "Con quale frequenza deve eseguirsi questa automazione?"
+            },
+            "publish": {
+                "title": "Pubblica Quando Pronto",
+                "description": "Rivedi le impostazioni, poi pubblica per attivare"
+            }
+        }
     }
 }

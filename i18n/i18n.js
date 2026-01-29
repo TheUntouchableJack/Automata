@@ -59,11 +59,14 @@ const I18n = (function() {
         }
     }
 
+    // Translation file version - increment when translations change
+    const TRANSLATION_VERSION = 3;
+
     // Load translation file
     async function loadTranslations(lang) {
         const basePath = getBasePath();
         try {
-            const response = await fetch(`${basePath}${lang}.json`);
+            const response = await fetch(`${basePath}${lang}.json?v=${TRANSLATION_VERSION}`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${lang}.json`);
             }

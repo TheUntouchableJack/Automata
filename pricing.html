@@ -12,6 +12,11 @@
     <style>
         /* Announcement Banner */
         .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
             background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
             color: #000;
             text-align: center;
@@ -20,15 +25,20 @@
             font-weight: 500;
         }
 
+        .announcement-banner.hidden {
+            display: none;
+        }
+
         .announcement-banner .container {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
+            position: relative;
         }
 
-        .announcement-banner a {
+        .announcement-banner a.btn-deal {
             background: #000;
             color: #fff;
             padding: 6px 16px;
@@ -39,20 +49,42 @@
             transition: background 0.2s;
         }
 
-        .announcement-banner a:hover {
+        .announcement-banner a.btn-deal:hover {
             background: #333;
         }
 
+        .banner-close {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #000;
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .banner-close:hover {
+            opacity: 1;
+        }
+
         /* Adjust navbar position when banner is present */
-        .navbar {
-            top: 0;
+        body:not(.banner-dismissed) .navbar {
+            top: 44px;
         }
 
         /* Pricing Page Specific Styles */
         .pricing-hero {
-            padding: 160px 0 80px;
+            padding: 200px 0 40px;
             text-align: center;
             background: var(--color-bg);
+        }
+
+        body.banner-dismissed .pricing-hero {
+            padding: 140px 0 40px;
         }
 
         .pricing-hero h1 {
@@ -466,10 +498,15 @@
 </head>
 <body>
     <!-- AppSumo Announcement Banner -->
-    <div class="announcement-banner">
+    <div class="announcement-banner" id="appsumo-banner">
         <div class="container">
             <span>Limited Time: Get <strong>lifetime access</strong> on AppSumo</span>
-            <a href="#appsumo">View Deal</a>
+            <a href="#appsumo" class="btn-deal">View Deal</a>
+            <button class="banner-close" aria-label="Close banner">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
         </div>
     </div>
 
@@ -526,92 +563,121 @@
                 <span class="toggle-label" data-period="annual">Annual <span class="save-badge">Save 20%</span></span>
             </div>
 
-            <div class="pricing-cards">
+            <div class="pricing-cards pricing-cards-simple">
                 <!-- Starter -->
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Starter</h3>
-                        <p>Perfect for trying Automata</p>
+                        <p>Try it out</p>
                     </div>
                     <div class="pricing-price">
                         <span class="price">$0</span>
                         <span class="period">forever free</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>1 project</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Up to 100 customers</span></li>
                         <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>3 automations</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>100 customers</span></li>
                         <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>500 emails/month</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10 AI analyses</span></li>
                         <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Community support</span></li>
                     </ul>
                     <a href="/app/signup.html" class="btn btn-secondary btn-block">Get Started Free</a>
                 </div>
 
-                <!-- Growth -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Growth</h3>
-                        <p>For small businesses scaling up</p>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="price" data-monthly="39" data-annual="31">$39</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>5 projects</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>15 automations</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2,000 customers</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>5,000 emails/month</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>50 AI analyses</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Email support</span></li>
-                    </ul>
-                    <a href="/app/signup.html" class="btn btn-secondary btn-block">Start 14-Day Trial</a>
-                    <p class="pricing-note">No credit card required</p>
-                </div>
-
-                <!-- Business -->
+                <!-- Pro -->
                 <div class="pricing-card featured">
                     <div class="pricing-badge">Most Popular</div>
                     <div class="pricing-header">
-                        <h3>Business</h3>
-                        <p>For growing teams with more needs</p>
+                        <h3>Pro</h3>
+                        <p>For growing businesses</p>
                     </div>
                     <div class="pricing-price">
-                        <span class="price" data-monthly="99" data-annual="79">$99</span>
+                        <span class="price" data-monthly="49" data-annual="39">$49</span>
                         <span class="period">/month</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>15 projects</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>50 automations</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10,000 customers</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>25,000 emails/month</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>200 AI analyses</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Priority support + API</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Up to 5,000 customers</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited automations</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10,000 emails/month</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Priority support</span></li>
                     </ul>
-                    <a href="/app/signup.html" class="btn btn-primary btn-block">Start 14-Day Trial</a>
+                    <a href="/app/signup.html" class="btn btn-primary btn-block">Start Free Trial</a>
                     <p class="pricing-note">No credit card required</p>
                 </div>
 
+                <!-- Scale -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Scale</h3>
+                        <p>For larger teams</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price" data-monthly="149" data-annual="119">$149</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Up to 25,000 customers</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited everything</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>50,000 emails/month</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dedicated support + API</span></li>
+                    </ul>
+                    <a href="/app/signup.html" class="btn btn-secondary btn-block">Start Free Trial</a>
+                    <p class="pricing-note">No credit card required</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section id="enterprise" class="pricing-section" style="background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Enterprise</span>
+                <h2>Built for scale</h2>
+                <p>For organizations with 25,000+ customers, compliance needs, or custom requirements.</p>
+            </div>
+
+            <div class="pricing-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 800px;">
                 <!-- Enterprise -->
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Enterprise</h3>
-                        <p>For large organizations</p>
+                        <p>For mid-size organizations</p>
                     </div>
                     <div class="pricing-price">
-                        <span class="price" data-monthly="249" data-annual="199">$249</span>
+                        <span class="price" data-monthly="299" data-annual="239">$299</span>
                         <span class="period">/month</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited projects</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited automations</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>50,000 customers</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>100K emails + 1K SMS</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited AI analyses</span></li>
-                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dedicated support + SLA</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Up to 100,000 customers</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited everything</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>200K emails + 2K SMS</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SSO & advanced security</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dedicated account manager</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>99.9% SLA guarantee</span></li>
                     </ul>
-                    <a href="mailto:sales@automata.io" class="btn btn-secondary btn-block">Contact Sales</a>
+                    <a href="mailto:enterprise@automata.io" class="btn btn-secondary btn-block">Contact Sales</a>
+                </div>
+
+                <!-- Enterprise Plus -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">White Glove</div>
+                    <div class="pricing-header">
+                        <h3>Enterprise Plus</h3>
+                        <p>Fully custom solution</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">Custom</span>
+                        <span class="period">tailored to you</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited customers</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Custom integrations</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Volume-based pricing</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>On-premise option</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dedicated engineering support</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Custom SLA & compliance</span></li>
+                    </ul>
+                    <a href="mailto:enterprise@automata.io" class="btn btn-primary btn-block">Let's Talk</a>
                 </div>
             </div>
         </div>
@@ -631,8 +697,8 @@
                         <tr>
                             <th>Features</th>
                             <th>Starter</th>
-                            <th>Growth</th>
-                            <th>Business</th>
+                            <th>Pro</th>
+                            <th>Scale</th>
                             <th>Enterprise</th>
                         </tr>
                     </thead>
@@ -651,16 +717,16 @@
                         <tr>
                             <td>Automations</td>
                             <td>3</td>
-                            <td>15</td>
-                            <td>50</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
                             <td>Unlimited</td>
                         </tr>
                         <tr>
                             <td>Customers</td>
                             <td>100</td>
-                            <td>2,000</td>
-                            <td>10,000</td>
-                            <td>50,000</td>
+                            <td>5,000</td>
+                            <td>25,000</td>
+                            <td>100,000</td>
                         </tr>
                         <tr>
                             <td>Team members</td>
@@ -677,9 +743,9 @@
                         <tr>
                             <td>Emails per month</td>
                             <td>500</td>
-                            <td>5,000</td>
-                            <td>25,000</td>
-                            <td>100,000</td>
+                            <td>10,000</td>
+                            <td>50,000</td>
+                            <td>200,000</td>
                         </tr>
                         <tr>
                             <td>SMS included</td>
@@ -1045,6 +1111,25 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=7"></script>
+    <script>
+        // Banner dismissal
+        (function() {
+            const banner = document.getElementById('appsumo-banner');
+            const closeBtn = banner?.querySelector('.banner-close');
+
+            // Check if banner was previously dismissed
+            if (localStorage.getItem('appsumo-banner-dismissed') === 'true') {
+                banner?.classList.add('hidden');
+                document.body.classList.add('banner-dismissed');
+            }
+
+            closeBtn?.addEventListener('click', function() {
+                banner.classList.add('hidden');
+                document.body.classList.add('banner-dismissed');
+                localStorage.setItem('appsumo-banner-dismissed', 'true');
+            });
+        })();
+    </script>
 </body>
 </html>

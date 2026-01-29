@@ -14,9 +14,10 @@
     },
     "hero": {
         "badge": "测试版 — 加入等候名单",
-        "titleLine1": "一个人。",
-        "titleLine2": "数百万个关系。",
-        "subtitle": "上传您的客户数据。让AI提出个性化自动化建议。大规模建立有意义的联系——同时保持人性化。",
+        "titleLine1": "一个{word}。",
+        "titleLine2": "数千个关系。",
+        "rotatingWords": ["人", "创始人", "企业家", "老板", "创造者", "母亲", "女性"],
+        "subtitle": "每个生日都被记住。每次到访都有跟进。每位忠实客户都被感谢——全自动完成。",
         "joinWaitlist": "加入等候名单",
         "seeHowItWorks": "了解工作原理",
         "stats": {
@@ -161,41 +162,41 @@
     },
     "pricing": {
         "tag": "定价",
-        "title": "简单透明的定价",
-        "subtitle": "按使用付费。没有隐藏费用。",
-        "free": {
-            "name": "免费试用",
-            "desc": "开始体验自动化的力量",
-            "period": "14天",
-            "feature1": "最多100个客户",
-            "feature2": "2个活跃自动化",
-            "feature3": "包含100条消息",
-            "feature4": "邮件支持",
-            "cta": "加入等候名单"
+        "title": "简单定价。没有意外。",
+        "subtitle": "免费开始，准备好再升级。无需信用卡。",
+        "popular": "最受欢迎",
+        "perMonth": "/月",
+        "noCreditCard": "无需信用卡",
+        "annualNote": "年付享8折优惠。<a href=\"/pricing.html\">查看完整详情</a>",
+        "starter": {
+            "name": "入门版",
+            "desc": "免费试用",
+            "period": "永久免费",
+            "f1": "最多100位客户",
+            "f2": "3个自动化",
+            "f3": "社区支持",
+            "cta": "免费开始"
         },
-        "growth": {
-            "badge": "最受欢迎",
-            "name": "成长版",
-            "desc": "适合准备扩展关系的企业",
-            "period": "每个自动化",
-            "feature1": "无限客户",
-            "feature2": "无限自动化",
-            "feature3": "邮件 + 短信渠道",
-            "feature4": "AI驱动建议",
-            "feature5": "优先支持",
-            "cta": "开始使用",
-            "note": "+ ¥199/月托管 · 按量计费消息"
+        "pro": {
+            "name": "专业版",
+            "desc": "适合成长型企业",
+            "f1": "最多5,000位客户",
+            "f2": "无限自动化",
+            "f3": "优先支持",
+            "cta": "开始免费试用"
+        },
+        "scale": {
+            "name": "规模版",
+            "desc": "适合大型团队",
+            "f1": "最多25,000位客户",
+            "f2": "一切无限",
+            "f3": "专属支持",
+            "cta": "开始免费试用"
         },
         "enterprise": {
-            "name": "企业版",
-            "desc": "适合有定制需求的大型团队",
-            "price": "定制",
-            "period": "为您量身定制",
-            "feature1": "成长版全部功能",
-            "feature2": "定制集成",
-            "feature3": "专属支持",
-            "feature4": "SLA保障",
-            "cta": "联系销售"
+            "title": "需要更多功能？",
+            "desc": "适合拥有25,000+客户、需要自定义集成或合规要求的组织。",
+            "cta": "了解企业版"
         }
     },
     "cta": {
@@ -330,5 +331,82 @@
         "previous": "上一步",
         "page": "页",
         "of": "/"
+    },
+    "onboarding": {
+        "title": "告诉我们您的业务",
+        "subtitle": "我们会告诉您如何让每位顾客都回头。",
+        "placeholder": "例如，我在上海经营一家咖啡店。我们希望顾客能够再次光临...",
+        "moreDetails": "添加详细信息以获得更好的建议",
+        "getRecommendations": "获取推荐",
+        "recommendationsTitle": "为您推荐",
+        "selectedCount": "/ 3 已选",
+        "continueToSignup": "创建账户并激活",
+        "freeTierNote": "免费计划：3个自动化，100位客户，500条消息/月",
+        "customBadge": "自定义创建",
+        "customTitle": "需要不同的功能？",
+        "customDesc": "描述您需要的自动化，我们会为您构建。",
+        "customPlaceholder": "例如，纹身预约6周后发送补色提醒...",
+        "signupSummary": "您的自动化已准备就绪",
+        "industry": "行业",
+        "goals": "目标",
+        "painPoints": "挑战",
+        "selectIndustry": "选择您的行业",
+        "industries": {
+            "food": "餐饮",
+            "retail": "零售和电商",
+            "health": "健康与养生",
+            "service": "专业服务",
+            "technology": "科技",
+            "education": "教育",
+            "other": "其他"
+        }
+    },
+    "coaching": {
+        "skip": "跳过导览",
+        "next": "下一步",
+        "done": "明白了！",
+        "stepOf": "第 {current} 步，共 {total} 步",
+        "dashboard": {
+            "newProject": {
+                "title": "创建您的第一个项目",
+                "description": "项目用于组织您的自动化和客户。从这里开始！"
+            },
+            "automationsNav": {
+                "title": "自动化库",
+                "description": "查看和管理所有项目中的自动化"
+            },
+            "customersNav": {
+                "title": "客户数据库",
+                "description": "在这里导入和管理您的客户列表"
+            }
+        },
+        "project": {
+            "newAutomation": {
+                "title": "创建自动化",
+                "description": "为此项目添加邮件营销、工作流等"
+            },
+            "aiSuggestions": {
+                "title": "AI建议",
+                "description": "让AI分析您的业务并建议自动化方案"
+            },
+            "customers": {
+                "title": "添加客户",
+                "description": "将客户分配到此项目以进行定向自动化"
+            }
+        },
+        "automation": {
+            "name": {
+                "title": "命名您的自动化",
+                "description": "给它一个清晰、描述性的名称"
+            },
+            "frequency": {
+                "title": "设置频率",
+                "description": "此自动化应该多久运行一次？"
+            },
+            "publish": {
+                "title": "准备好后发布",
+                "description": "检查您的设置，然后发布以激活"
+            }
+        }
     }
 }

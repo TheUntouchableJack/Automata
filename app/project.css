@@ -308,15 +308,9 @@
     border-radius: var(--radius-lg);
     margin-bottom: 24px;
     text-align: left;
-    overflow: hidden;
     width: 100%;
-}
-
-
-.overview-section h3 {
-    font-size: 1rem;
-    margin-bottom: 6px;
-    text-align: left;
+    padding: 24px;
+    position: relative;
 }
 
 .section-description {
@@ -325,33 +319,25 @@
     margin-bottom: 20px;
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 16px 24px;
-    background: var(--color-bg-secondary);
-    border-bottom: 1px solid var(--color-border);
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.section-header h3 {
-    margin: 0;
-    font-size: 14px;
+/* Section Title - simple left-aligned */
+.section-title {
+    margin: 0 0 20px 0;
+    font-size: 12px;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.section-header .btn {
-    flex-shrink: 0;
+/* Edit button - top right corner */
+.section-edit-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .section-content {
-    padding: 24px;
+    /* Content flows naturally after header */
 }
 
 .btn-sm {

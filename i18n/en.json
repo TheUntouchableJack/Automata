@@ -14,9 +14,10 @@
     },
     "hero": {
         "badge": "Now in Beta — Join the waitlist",
-        "titleLine1": "One person.",
-        "titleLine2": "Millions of relationships.",
-        "subtitle": "Upload your customer data. Let AI propose personalized automations. Build meaningful connections at scale — without losing the human touch.",
+        "titleLine1": "One {word}.",
+        "titleLine2": "Thousands of Relationships.",
+        "rotatingWords": ["Person", "Founder", "Entrepreneur", "Owner", "Creator", "Mother", "Woman"],
+        "subtitle": "Every birthday remembered. Every visit followed up. Every loyal customer thanked — automatically.",
         "joinWaitlist": "Join the Waitlist",
         "seeHowItWorks": "See How It Works",
         "stats": {
@@ -161,41 +162,41 @@
     },
     "pricing": {
         "tag": "Pricing",
-        "title": "Simple, Transparent Pricing",
-        "subtitle": "Pay for what you use. No hidden fees.",
-        "free": {
-            "name": "Free Trial",
-            "desc": "Get started and see the power of automation",
-            "period": "for 14 days",
-            "feature1": "Up to 100 customers",
-            "feature2": "2 active automations",
-            "feature3": "100 messages included",
-            "feature4": "Email support",
-            "cta": "Join Waitlist"
+        "title": "Simple pricing. No surprises.",
+        "subtitle": "Start free, upgrade when you're ready. No credit card required.",
+        "popular": "Most Popular",
+        "perMonth": "/month",
+        "noCreditCard": "No credit card required",
+        "annualNote": "Save 20% with annual billing. <a href=\"/pricing.html\">See full details</a>",
+        "starter": {
+            "name": "Starter",
+            "desc": "Try it out",
+            "period": "forever free",
+            "f1": "Up to 100 customers",
+            "f2": "3 automations",
+            "f3": "Community support",
+            "cta": "Get Started Free"
         },
-        "growth": {
-            "badge": "Most Popular",
-            "name": "Growth",
-            "desc": "For businesses ready to scale relationships",
-            "period": "per automation",
-            "feature1": "Unlimited customers",
-            "feature2": "Unlimited automations",
-            "feature3": "Email + SMS channels",
-            "feature4": "AI-powered suggestions",
-            "feature5": "Priority support",
-            "cta": "Get Started",
-            "note": "+ $29/mo hosting · Usage-based messaging"
+        "pro": {
+            "name": "Pro",
+            "desc": "For growing businesses",
+            "f1": "Up to 5,000 customers",
+            "f2": "Unlimited automations",
+            "f3": "Priority support",
+            "cta": "Start Free Trial"
+        },
+        "scale": {
+            "name": "Scale",
+            "desc": "For larger teams",
+            "f1": "Up to 25,000 customers",
+            "f2": "Unlimited everything",
+            "f3": "Dedicated support",
+            "cta": "Start Free Trial"
         },
         "enterprise": {
-            "name": "Enterprise",
-            "desc": "For large teams with custom needs",
-            "price": "Custom",
-            "period": "tailored to you",
-            "feature1": "Everything in Growth",
-            "feature2": "Custom integrations",
-            "feature3": "Dedicated support",
-            "feature4": "SLA guarantee",
-            "cta": "Contact Sales"
+            "title": "Need more power?",
+            "desc": "For organizations with 25,000+ customers, custom integrations, or compliance requirements.",
+            "cta": "Learn about Enterprise"
         }
     },
     "cta": {
@@ -330,5 +331,82 @@
         "previous": "Previous",
         "page": "Page",
         "of": "of"
+    },
+    "onboarding": {
+        "title": "Tell us about your business",
+        "subtitle": "We'll show you exactly how to keep every customer coming back.",
+        "placeholder": "e.g., I run a coffee shop in Austin. We want to keep customers coming back...",
+        "moreDetails": "Add details for better suggestions",
+        "getRecommendations": "Get Recommendations",
+        "recommendationsTitle": "Recommended for You",
+        "selectedCount": "of 3 selected",
+        "continueToSignup": "Create Account & Activate",
+        "freeTierNote": "Free plan: 3 automations, 100 customers, 500 messages/month",
+        "customBadge": "Build Your Own",
+        "customTitle": "Need something different?",
+        "customDesc": "Describe the automation you need and we'll build it for you.",
+        "customPlaceholder": "e.g., Send a reminder 6 weeks after a tattoo appointment for touch-ups...",
+        "signupSummary": "Your automations are ready",
+        "industry": "Industry",
+        "goals": "Goals",
+        "painPoints": "Challenges",
+        "selectIndustry": "Select your industry",
+        "industries": {
+            "food": "Food & Beverage",
+            "retail": "Retail & E-commerce",
+            "health": "Health & Wellness",
+            "service": "Professional Services",
+            "technology": "Technology",
+            "education": "Education",
+            "other": "Other"
+        }
+    },
+    "coaching": {
+        "skip": "Skip Tour",
+        "next": "Next",
+        "done": "Got it!",
+        "stepOf": "Step {current} of {total}",
+        "dashboard": {
+            "newProject": {
+                "title": "Create Your First Project",
+                "description": "Projects organize your automations and customers. Start here!"
+            },
+            "automationsNav": {
+                "title": "Automations Library",
+                "description": "View and manage all your automations across projects"
+            },
+            "customersNav": {
+                "title": "Customer Database",
+                "description": "Import and manage your customer list here"
+            }
+        },
+        "project": {
+            "newAutomation": {
+                "title": "Create Automations",
+                "description": "Add email campaigns, workflows, and more to this project"
+            },
+            "aiSuggestions": {
+                "title": "AI Suggestions",
+                "description": "Let AI analyze your business and suggest automations"
+            },
+            "customers": {
+                "title": "Add Customers",
+                "description": "Assign customers to this project for targeted automations"
+            }
+        },
+        "automation": {
+            "name": {
+                "title": "Name Your Automation",
+                "description": "Give it a clear, descriptive name"
+            },
+            "frequency": {
+                "title": "Set Frequency",
+                "description": "How often should this automation run?"
+            },
+            "publish": {
+                "title": "Publish When Ready",
+                "description": "Review your settings, then publish to activate"
+            }
+        }
     }
 }

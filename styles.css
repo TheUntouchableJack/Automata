@@ -85,6 +85,58 @@ body {
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+/* ===== Network Background ===== */
+.network-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure all content stays above the background */
+.navbar {
+    position: relative;
+    z-index: 100;
+}
+
+.hero,
+.recommendations,
+.problem-solution,
+.features,
+.how-it-works,
+.automations-preview,
+.social-proof,
+.pricing,
+.cta-section,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtle gradient fade at hero bottom for smooth transition */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .network-bg {
+        opacity: 0.25;
+    }
 }
 
 img {
@@ -299,15 +351,27 @@ h4 {
 
 /* ===== Hero Section ===== */
 .hero {
-    padding: 140px 0 100px;
-    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+    padding: 140px 0 80px;
+    background: transparent;
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 720px;
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-2xl);
+    margin-top: -20px;
 }
 
 .hero-badge {
@@ -315,12 +379,14 @@ h4 {
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: var(--color-primary-subtle);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-border);
     color: var(--color-primary);
     font-size: 13px;
     font-weight: 500;
     border-radius: var(--radius-full);
     margin-bottom: 24px;
+    backdrop-filter: blur(8px);
 }
 
 .badge-dot {
@@ -337,15 +403,36 @@ h4 {
 }
 
 .hero-title {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+/* First line - "One" is the setup, slightly de-emphasized but legible */
+#title-line-1 {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* Rotating word - THE HOOK - make it POP */
+.rotating-word {
+    display: inline-block;
+    transition: opacity 0.25s ease-out, transform 0.3s var(--transition-spring);
+    color: var(--color-text);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform-origin: center bottom;
 }
 
 .hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 32px;
-    max-width: 480px;
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 48px;
+    max-width: 600px;
     line-height: 1.7;
+    text-align: center;
 }
 
 .hero-cta {
@@ -357,7 +444,9 @@ h4 {
 .hero-stats {
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 16px;
 }
 
 .stat {
@@ -1021,6 +1110,52 @@ blockquote {
     margin: 0 auto;
 }
 
+/* Simplified 3-tier pricing layout */
+.pricing-cards-simple {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+}
+
+.pricing-enterprise-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 32px 40px;
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-xl);
+    margin-top: 48px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enterprise-cta-content h3 {
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+}
+
+.enterprise-cta-content p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.pricing-annual-note {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.pricing-annual-note a {
+    color: var(--color-primary);
+}
+
+.pricing-annual-note a:hover {
+    text-decoration: underline;
+}
+
 .pricing-addons-note {
     text-align: center;
     margin-top: 40px;
@@ -1322,34 +1457,383 @@ blockquote {
     min-width: 120px;
 }
 
+/* ===== Discovery Card (Onboarding) ===== */
+.discovery-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    padding: 40px;
+    margin-bottom: 48px;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: var(--shadow-xl);
+    text-align: left;
+}
+
+.discovery-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.discovery-subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.discovery-input {
+    width: 100%;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    color: var(--color-text);
+    resize: vertical;
+    min-height: 80px;
+    transition: all var(--transition-base);
+}
+
+.discovery-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.discovery-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.discovery-details {
+    margin: 16px 0;
+}
+
+.discovery-details summary {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-primary);
+    cursor: pointer;
+    padding: 8px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.discovery-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.discovery-details summary::before {
+    content: '+';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary-subtle);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: transform var(--transition-fast);
+}
+
+.discovery-details[open] summary::before {
+    content: '−';
+}
+
+.discovery-details-content {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.discovery-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.discovery-field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.discovery-field select,
+.discovery-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: all var(--transition-base);
+}
+
+.discovery-field select:focus,
+.discovery-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.discovery-field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.discovery-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 16px 24px;
+    font-size: 16px;
+}
+
+/* ===== Recommendations Section ===== */
+.recommendations {
+    padding: 80px 0 100px;
+    background: var(--color-bg-secondary);
+}
+
+.recommendations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.recommendations-header-text h2 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
+.recommendations-context {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    max-width: 500px;
+}
+
+.selection-counter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 20px;
+    background: var(--color-bg);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.selection-counter #selection-count {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+/* Recommendation Card */
+.recommendation-card {
+    position: relative;
+    padding: 28px;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.recommendation-card:hover {
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.recommendation-card.selected {
+    border-color: var(--color-primary);
+    background: var(--gradient-subtle);
+}
+
+.recommendation-card.selected::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.recommendation-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.recommendation-card.disabled:hover {
+    transform: none;
+    border-color: var(--color-border);
+    box-shadow: none;
+}
+
+.recommendation-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+}
+
+.recommendation-card-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    margin-bottom: 12px;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-accent);
+}
+
+.recommendation-card-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.recommendation-card-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.recommendation-card-reason {
+    font-size: 12px;
+    color: var(--color-primary);
+    font-style: italic;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border-light);
+}
+
+/* Custom Automation Card */
+.recommendation-card.custom-card {
+    border-style: dashed;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
+}
+
+.recommendation-card.custom-card:hover {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.recommendation-card.custom-card.selected {
+    border-style: solid;
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+}
+
+.recommendation-card.custom-card .custom-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+}
+
+.recommendation-card.custom-card .custom-badge {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+}
+
+.custom-automation-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    margin-top: 8px;
+}
+
+.custom-automation-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.custom-automation-textarea:disabled {
+    background: var(--color-bg-secondary);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.custom-automation-textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.recommendations-cta {
+    text-align: center;
+}
+
+.recommendations-cta .btn {
+    min-width: 280px;
+}
+
+.recommendations-cta .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.free-tier-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
-    .hero .container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .hero-content {
+        max-width: 100%;
+        padding: 32px 40px;
     }
 
-    .hero-subtitle {
-        margin: 0 auto 32px;
-    }
-
-    .hero-cta {
-        justify-content: center;
-    }
-
-    .hero-stats {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        order: -1;
-    }
-
-    .dashboard-preview {
-        max-width: 420px;
+    .discovery-card {
+        max-width: 100%;
     }
 
     .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recommendations-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1363,6 +1847,17 @@ blockquote {
     .pricing-cards {
         grid-template-columns: 1fr;
         max-width: 400px;
+    }
+
+    .pricing-cards-simple {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .pricing-enterprise-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
     }
 
     .billing-toggle {
@@ -1385,6 +1880,12 @@ blockquote {
         padding: 120px 0 80px;
     }
 
+    .hero-content {
+        padding: 24px 20px;
+        margin: 0 -8px;
+        border-radius: var(--radius-lg);
+    }
+
     .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -1397,6 +1898,31 @@ blockquote {
 
     .stat-divider {
         display: none;
+    }
+
+    .discovery-card {
+        padding: 24px;
+    }
+
+    .discovery-title {
+        font-size: 1.25rem;
+    }
+
+    .recommendations {
+        padding: 60px 0 80px;
+    }
+
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recommendations-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .selection-counter {
+        align-self: flex-start;
     }
 
     .comparison {

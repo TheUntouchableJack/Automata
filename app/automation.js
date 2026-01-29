@@ -16,10 +16,21 @@ async function initAutomation() {
 
     // Get automation ID from URL hash (fallback to query param for compatibility)
     let automationId = window.location.hash.slice(1); // Remove the # prefix
+
+    // Check for guided mode in hash (e.g., #automationId?guided=true)
+    let guidedMode = false;
+    if (automationId && automationId.includes('?')) {
+        const [id, queryString] = automationId.split('?');
+        automationId = id;
+        const params = new URLSearchParams(queryString);
+        guidedMode = params.get('guided') === 'true';
+    }
+
     if (!automationId) {
         // Fallback to query param
         const urlParams = new URLSearchParams(window.location.search);
         automationId = urlParams.get('id');
+        guidedMode = urlParams.get('guided') === 'true';
     }
 
     if (!automationId) {
@@ -35,6 +46,21 @@ async function initAutomation() {
 
     // Setup event listeners
     setupEventListeners();
+
+    // Show coaching tour if in guided mode
+    if (guidedMode) {
+        showAutomationCoachingTour();
+    }
+}
+
+// ===== Coaching Tour =====
+function showAutomationCoachingTour() {
+    if (typeof Coaching === 'undefined') return;
+
+    // Slight delay to ensure UI is ready
+    setTimeout(() => {
+        Coaching.showTour('automation');
+    }, 500);
 }
 
 // ===== Load User Info =====

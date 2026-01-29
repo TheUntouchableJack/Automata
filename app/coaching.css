@@ -1,0 +1,239 @@
+/* ===== Coaching System Styles ===== */
+/* Lightweight in-app tour system */
+
+/* Overlay container */
+.coaching-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Dark backdrop */
+.coaching-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+/* Spotlight cutout */
+.coaching-spotlight {
+    position: absolute;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* Tooltip */
+.coaching-tooltip {
+    position: absolute;
+    width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    pointer-events: auto;
+    z-index: 10001;
+    animation: coachingTooltipFadeIn 0.3s ease;
+}
+
+@keyframes coachingTooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Step indicator dots */
+.coaching-step-indicator {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.coaching-step-indicator .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border, #e2e8f0);
+    transition: all 0.2s ease;
+}
+
+.coaching-step-indicator .dot.active {
+    background: var(--color-primary, #6366f1);
+}
+
+.coaching-step-indicator .dot.current {
+    transform: scale(1.25);
+}
+
+/* Title */
+.coaching-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text, #1e293b);
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+/* Description */
+.coaching-description {
+    font-size: 14px;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+/* Action buttons container */
+.coaching-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Skip button */
+.coaching-skip {
+    background: none;
+    border: none;
+    color: var(--color-text-muted, #94a3b8);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+}
+
+.coaching-skip:hover {
+    color: var(--color-text, #1e293b);
+}
+
+/* Next button */
+.coaching-next {
+    background: var(--color-primary, #6366f1);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.coaching-next:hover {
+    background: var(--color-primary-dark, #4f46e5);
+    transform: translateY(-1px);
+}
+
+.coaching-next:active {
+    transform: translateY(0);
+}
+
+/* Pulsing highlight for target element */
+.coaching-highlight {
+    position: relative;
+    z-index: 10000;
+    animation: coachingPulse 2s ease-in-out infinite;
+}
+
+@keyframes coachingPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    .coaching-tooltip {
+        width: calc(100vw - 32px);
+        max-width: 320px;
+        left: 16px !important;
+        right: 16px;
+    }
+
+    .coaching-title {
+        font-size: 15px;
+    }
+
+    .coaching-description {
+        font-size: 13px;
+    }
+
+    .coaching-actions {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .coaching-skip {
+        width: 100%;
+        text-align: center;
+    }
+
+    .coaching-next {
+        width: 100%;
+    }
+}
+
+/* RTL support */
+[dir="rtl"] .coaching-step-indicator {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .coaching-actions {
+    flex-direction: row-reverse;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .coaching-tooltip {
+        animation: none;
+    }
+
+    .coaching-spotlight {
+        transition: none;
+    }
+
+    .coaching-highlight {
+        animation: none;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.5);
+    }
+}
+
+/* Dark mode support (if implemented) */
+@media (prefers-color-scheme: dark) {
+    .coaching-tooltip {
+        background: #1e293b;
+    }
+
+    .coaching-title {
+        color: #f1f5f9;
+    }
+
+    .coaching-description {
+        color: #94a3b8;
+    }
+
+    .coaching-skip {
+        color: #64748b;
+    }
+
+    .coaching-skip:hover {
+        color: #f1f5f9;
+    }
+
+    .coaching-step-indicator .dot {
+        background: #334155;
+    }
+}

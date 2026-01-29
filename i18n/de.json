@@ -14,9 +14,10 @@
     },
     "hero": {
         "badge": "In Beta — Warteliste beitreten",
-        "titleLine1": "Eine Person.",
-        "titleLine2": "Millionen von Beziehungen.",
-        "subtitle": "Laden Sie Ihre Kundendaten hoch. Lassen Sie KI personalisierte Automatisierungen vorschlagen. Bauen Sie bedeutungsvolle Verbindungen im großen Maßstab auf — ohne den menschlichen Touch zu verlieren.",
+        "titleLine1": "Ein {word}.",
+        "titleLine2": "Tausende von Beziehungen.",
+        "rotatingWords": ["Person", "Gründer", "Unternehmer", "Inhaber", "Schöpfer", "Mutter", "Frau"],
+        "subtitle": "Jeder Geburtstag erinnert. Jeder Besuch nachverfolgt. Jeder treue Kunde bedankt — automatisch.",
         "joinWaitlist": "Warteliste beitreten",
         "seeHowItWorks": "So funktioniert's",
         "stats": {
@@ -161,41 +162,41 @@
     },
     "pricing": {
         "tag": "Preise",
-        "title": "Einfache, Transparente Preise",
-        "subtitle": "Zahlen Sie für das, was Sie nutzen. Keine versteckten Gebühren.",
-        "free": {
-            "name": "Kostenlose Testversion",
-            "desc": "Starten Sie und erleben Sie die Kraft der Automatisierung",
-            "period": "für 14 Tage",
-            "feature1": "Bis zu 100 Kunden",
-            "feature2": "2 aktive Automatisierungen",
-            "feature3": "100 Nachrichten inklusive",
-            "feature4": "E-Mail-Support",
-            "cta": "Zur Warteliste"
+        "title": "Einfache Preise. Keine Überraschungen.",
+        "subtitle": "Starten Sie kostenlos, upgraden Sie wenn Sie bereit sind. Keine Kreditkarte erforderlich.",
+        "popular": "Am Beliebtesten",
+        "perMonth": "/Monat",
+        "noCreditCard": "Keine Kreditkarte erforderlich",
+        "annualNote": "Sparen Sie 20% bei jährlicher Abrechnung. <a href=\"/pricing.html\">Details ansehen</a>",
+        "starter": {
+            "name": "Starter",
+            "desc": "Ausprobieren",
+            "period": "für immer kostenlos",
+            "f1": "Bis zu 100 Kunden",
+            "f2": "3 Automatisierungen",
+            "f3": "Community-Support",
+            "cta": "Kostenlos Starten"
         },
-        "growth": {
-            "badge": "Am Beliebtesten",
-            "name": "Wachstum",
-            "desc": "Für Unternehmen, die bereit sind, Beziehungen zu skalieren",
-            "period": "pro Automatisierung",
-            "feature1": "Unbegrenzte Kunden",
-            "feature2": "Unbegrenzte Automatisierungen",
-            "feature3": "E-Mail + SMS Kanäle",
-            "feature4": "KI-gestützte Vorschläge",
-            "feature5": "Prioritäts-Support",
-            "cta": "Loslegen",
-            "note": "+ 29€/Monat Hosting · Nutzungsbasierte Nachrichten"
+        "pro": {
+            "name": "Pro",
+            "desc": "Für wachsende Unternehmen",
+            "f1": "Bis zu 5.000 Kunden",
+            "f2": "Unbegrenzte Automatisierungen",
+            "f3": "Prioritäts-Support",
+            "cta": "Kostenlos Testen"
+        },
+        "scale": {
+            "name": "Scale",
+            "desc": "Für größere Teams",
+            "f1": "Bis zu 25.000 Kunden",
+            "f2": "Alles unbegrenzt",
+            "f3": "Dedizierter Support",
+            "cta": "Kostenlos Testen"
         },
         "enterprise": {
-            "name": "Unternehmen",
-            "desc": "Für große Teams mit individuellen Anforderungen",
-            "price": "Individuell",
-            "period": "auf Sie zugeschnitten",
-            "feature1": "Alles in Wachstum",
-            "feature2": "Individuelle Integrationen",
-            "feature3": "Dedizierter Support",
-            "feature4": "SLA-Garantie",
-            "cta": "Vertrieb kontaktieren"
+            "title": "Mehr Power benötigt?",
+            "desc": "Für Organisationen mit über 25.000 Kunden, individuellen Integrationen oder Compliance-Anforderungen.",
+            "cta": "Enterprise entdecken"
         }
     },
     "cta": {
@@ -330,5 +331,82 @@
         "previous": "Vorherige",
         "page": "Seite",
         "of": "von"
+    },
+    "onboarding": {
+        "title": "Erzählen Sie uns von Ihrem Unternehmen",
+        "subtitle": "Wir zeigen Ihnen genau, wie Sie jeden Kunden zum Wiederkommen bringen.",
+        "placeholder": "z.B., Ich betreibe ein Café in Berlin. Wir möchten, dass Kunden wiederkommen...",
+        "moreDetails": "Fügen Sie Details für bessere Vorschläge hinzu",
+        "getRecommendations": "Empfehlungen Erhalten",
+        "recommendationsTitle": "Für Sie Empfohlen",
+        "selectedCount": "von 3 ausgewählt",
+        "continueToSignup": "Konto Erstellen & Aktivieren",
+        "freeTierNote": "Kostenloser Plan: 3 Automatisierungen, 100 Kunden, 500 Nachrichten/Monat",
+        "customBadge": "Eigene Erstellen",
+        "customTitle": "Brauchen Sie etwas anderes?",
+        "customDesc": "Beschreiben Sie die gewünschte Automatisierung und wir erstellen sie für Sie.",
+        "customPlaceholder": "z.B., 6 Wochen nach einem Tattoo-Termin eine Erinnerung für Nachbesserungen senden...",
+        "signupSummary": "Ihre Automatisierungen sind bereit",
+        "industry": "Branche",
+        "goals": "Ziele",
+        "painPoints": "Herausforderungen",
+        "selectIndustry": "Wählen Sie Ihre Branche",
+        "industries": {
+            "food": "Gastronomie",
+            "retail": "Einzelhandel & E-Commerce",
+            "health": "Gesundheit & Wellness",
+            "service": "Professionelle Dienstleistungen",
+            "technology": "Technologie",
+            "education": "Bildung",
+            "other": "Sonstige"
+        }
+    },
+    "coaching": {
+        "skip": "Tour Überspringen",
+        "next": "Weiter",
+        "done": "Verstanden!",
+        "stepOf": "Schritt {current} von {total}",
+        "dashboard": {
+            "newProject": {
+                "title": "Erstellen Sie Ihr Erstes Projekt",
+                "description": "Projekte organisieren Ihre Automatisierungen und Kunden. Starten Sie hier!"
+            },
+            "automationsNav": {
+                "title": "Automatisierungsbibliothek",
+                "description": "Alle Ihre Automatisierungen projektübergreifend anzeigen und verwalten"
+            },
+            "customersNav": {
+                "title": "Kundendatenbank",
+                "description": "Importieren und verwalten Sie Ihre Kundenliste hier"
+            }
+        },
+        "project": {
+            "newAutomation": {
+                "title": "Automatisierungen Erstellen",
+                "description": "Fügen Sie E-Mail-Kampagnen, Workflows und mehr zu diesem Projekt hinzu"
+            },
+            "aiSuggestions": {
+                "title": "KI-Vorschläge",
+                "description": "Lassen Sie die KI Ihr Unternehmen analysieren und Automatisierungen vorschlagen"
+            },
+            "customers": {
+                "title": "Kunden Hinzufügen",
+                "description": "Weisen Sie diesem Projekt Kunden für gezielte Automatisierungen zu"
+            }
+        },
+        "automation": {
+            "name": {
+                "title": "Benennen Sie Ihre Automatisierung",
+                "description": "Geben Sie ihr einen klaren, beschreibenden Namen"
+            },
+            "frequency": {
+                "title": "Häufigkeit Festlegen",
+                "description": "Wie oft soll diese Automatisierung ausgeführt werden?"
+            },
+            "publish": {
+                "title": "Veröffentlichen Wenn Bereit",
+                "description": "Überprüfen Sie Ihre Einstellungen und veröffentlichen Sie zum Aktivieren"
+            }
+        }
     }
 }

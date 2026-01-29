@@ -15,6 +15,24 @@ async function initDashboard() {
     // Load user's organization
     await loadOrganization();
 
+    // Process pending onboarding (if user just signed up with onboarding data)
+    const onboardingResult = await processPendingOnboarding();
+
+    // If onboarding created a project, redirect to it with guided mode
+    if (onboardingResult?.project && onboardingResult?.automations?.length > 0) {
+        // Celebrate the successful onboarding!
+        if (typeof celebrateBig === 'function') {
+            celebrateBig();
+        }
+
+        // Redirect to the first automation in guided mode
+        setTimeout(() => {
+            const firstAutomation = onboardingResult.automations[0];
+            window.location.href = `/app/automation.html#${firstAutomation.id}?guided=true`;
+        }, 1500);
+        return;
+    }
+
     // Load usage data
     await loadUsageData();
 
@@ -23,6 +41,36 @@ async function initDashboard() {
 
     // Setup event listeners
     setupEventListeners();
+
+    // Show coaching tour for new users with no projects
+    showCoachingTourIfNeeded();
+}
+
+// ===== Process Pending Onboarding =====
+async function processPendingOnboarding() {
+    if (typeof OnboardingProcessor === 'undefined') return null;
+    if (!OnboardingProcessor.hasPendingOnboarding()) return null;
+    if (!currentOrganization) return null;
+
+    console.log('Processing pending onboarding data...');
+    return await OnboardingProcessor.process(currentOrganization.id, supabase);
+}
+
+// ===== Coaching Tour =====
+function showCoachingTourIfNeeded() {
+    if (typeof Coaching === 'undefined') return;
+
+    // Check if we have any projects
+    const projectsGrid = document.getElementById('projects-grid');
+    const emptyState = document.getElementById('empty-state');
+
+    // Show tour if empty state is visible (no projects)
+    if (emptyState && emptyState.style.display !== 'none') {
+        // Slight delay to ensure UI is ready
+        setTimeout(() => {
+            Coaching.showTour('dashboard');
+        }, 500);
+    }
 }
 
 // ===== Load Organization =====
